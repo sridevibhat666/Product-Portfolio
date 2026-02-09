@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sridevi - Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: #4a4a4a;
+            line-height: 1.8;
+            background-color: #fafafa;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #B2EBF2;
+            z-index: 1000;
+            padding: 24px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: #00BCD4;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 60px 100px;
+            background: linear-gradient(135deg, #E0F7FA 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 32px;
+            color: #333;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 .highlight {
+            font-weight: 600;
+            color: #00BCD4;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 48px;
+            background: linear-gradient(135deg, #00BCD4 0%, #26C6DA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+        }
+
+        section {
+            padding: 120px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: sticky;
+            top: 72px;
+            background-color: #fafafa;
+            padding: 40px 0 20px;
+            z-index: 100;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #333;
+            letter-spacing: -0.2px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .philosophy-box {
+            background-color: transparent;
+            border-left: 3px solid #00BCD4;
+            padding: 24px 0 24px 32px;
+            margin: 40px 0;
+            border-radius: 0;
+        }
+
+        .philosophy-box h4 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #333;
+            letter-spacing: -0.2px;
+        }
+
+        .philosophy-box p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .experience-timeline {
+            margin-top: 80px;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            padding: 60px 0;
+            border-bottom: 1px solid #B2EBF2;
+            align-items: start;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-company {
+            text-align: right;
+            position: sticky;
+            top: 120px;
+        }
+
+        .experience-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .experience-logo-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .experience-logo-text {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: -0.2px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .company-duration {
+            font-size: 13px;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .experience-details h4 {
+            font-size: 22px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 24px;
+            letter-spacing: -0.2px;
+        }
+
+        .experience-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .experience-highlights {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+
+        .experience-highlights li {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            padding: 8px 0 8px 20px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .experience-highlights li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #00BCD4;
+        }
+
+        .experience-metrics {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .metric-item {
+            text-align: left;
+        }
+
+        .metric-item-value {
+            font-size: 28px;
+            font-weight: 300;
+            color: #00BCD4;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .metric-item-label {
+            font-size: 12px;
+            color: #999;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: transparent;
+            color: #00838F;
+            font-size: 12px;
+            font-weight: 400;
+            border-radius: 0;
+            border: 1px solid #00BCD4;
+            letter-spacing: 0.5px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 48px 24px;
+            background-color: white;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border: 1px solid #B2EBF2;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            border-color: #00BCD4;
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.15);
+        }
+
+        .metric-value {
+            font-size: 42px;
+            font-weight: 300;
+            color: #00BCD4;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid #B2EBF2;
+            padding: 32px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 188, 212, 0.2);
+            border-color: #00BCD4;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #333;
+            letter-spacing: -0.2px;
+        }
+
+        .project-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .case-study {
+            background-color: white;
+            border: 1px solid #B2EBF2;
+            border-radius: 0;
+            padding: 60px;
+            margin-bottom: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .case-study:hover {
+            border-color: #00BCD4;
+            box-shadow: 0 8px 24px rgba(0, 188, 212, 0.1);
+        }
+
+        .case-study-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid #E0F7FA;
+        }
+
+        .case-study-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00BCD4 0%, #26C6DA 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-size: 32px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .case-study-subtitle {
+            font-size: 18px;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .case-study-section {
+            margin-bottom: 48px;
+        }
+
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-section-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #00BCD4;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .case-study-content {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .case-study-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .case-study-list li {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            padding: 12px 0 12px 32px;
+            position: relative;
+        }
+
+        .case-study-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #00BCD4;
+            font-weight: 600;
+        }
+
+        .case-study-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            background-color: #E0F7FA;
+            padding: 40px;
+            border-radius: 0;
+            margin: 32px 0;
+        }
+
+        .case-study-metric {
+            text-align: center;
+        }
+
+        .case-study-metric-value {
+            font-size: 36px;
+            font-weight: 300;
+            color: #00BCD4;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .case-study-metric-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-study-highlights {
+            background-color: #F0F9FB;
+            padding: 32px;
+            border-left: 4px solid #00BCD4;
+            margin: 32px 0;
+        }
+
+        .case-study-highlights-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .skill-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-accordion-item {
+            border-bottom: 1px solid #B2EBF2;
+        }
+
+        .skill-accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-accordion-header:hover {
+            color: #00BCD4;
+        }
+
+        .skill-accordion-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666;
+            letter-spacing: -0.2px;
+        }
+
+        .skill-accordion-icon {
+            font-size: 14px;
+            color: #00BCD4;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-accordion-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .skill-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .skill-accordion-content.open {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+
+        .skill-accordion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-accordion-content li {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .skill-accordion-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #00BCD4;
+        }
+
+        .companies-education-container {
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+            align-items: start;
+        }
+
+        .divider-line {
+            width: 2px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #00BCD4 0px,
+                #00BCD4 8px,
+                transparent 8px,
+                transparent 16px
+            );
+            height: 100%;
+            justify-self: center;
+        }
+
+        .section-heading {
+            font-size: 22px;
+            color: #00838F;
+            font-weight: 500;
+            margin-bottom: 48px;
+            text-align: center;
+            position: sticky;
+            top: 180px;
+            background-color: #fafafa;
+            padding: 20px 0;
+            z-index: 90;
+        }
+
+        .companies-section {
+            text-align: center;
+        }
+
+        .education-section {
+            text-align: center;
+        }
+
+        .company-card, .education-card {
+            background-color: white;
+            border: 1px solid #B2EBF2;
+            padding: 40px 32px;
+            margin-bottom: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .company-card:hover, .education-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.15);
+            border-color: #00BCD4;
+        }
+
+        .company-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .company-logo-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .company-logo-text {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: -0.2px;
+        }
+
+        .company-text-name {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 10px;
+            letter-spacing: -0.2px;
+        }
+
+        .company-status {
+            font-size: 12px;
+            color: #00BCD4;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .education-degree {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+        }
+
+        .education-institution {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .education-duration {
+            font-size: 11px;
+            color: #999;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 48px 40px;
+            border-radius: 0;
+            position: relative;
+            border: 1px solid #B2EBF2;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: #00BCD4;
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00BCD4 0%, #26C6DA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .author-info h5 {
+            font-size: 15px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 60px auto 0;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .contact-btn {
+            padding: 14px 36px;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: #00BCD4;
+            color: white;
+            border: 1px solid #00BCD4;
+        }
+
+        .btn-primary:hover {
+            background-color: #0097A7;
+            border-color: #0097A7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 188, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #00BCD4;
+            border: 1px solid #00BCD4;
+        }
+
+        .btn-secondary:hover {
+            background-color: #E0F7FA;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #E0F7FA;
+            color: #00838F;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid #B2EBF2;
+        }
+
+        footer p {
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .experience-item {
+                grid-template-columns: 1fr;
+            }
+            .experience-company {
+                text-align: left;
+                position: relative;
+            }
+            .experience-logo-container {
+                justify-content: flex-start;
+            }
+            .companies-education-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .divider-line {
+                display: none;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Sridevi</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">SD</div>
+            <h1>Hi, I'm <span class="highlight">Sridevi</span>,<br>a Product Manager</h1>
+            <p class="hero-subtitle">I'm a hands-on PM who takes messy real-world problems, builds products from scratch, and turns them into things people actually use — and pay for.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Background</h3>
+                <p>I'm a Product Manager with 2+ years of experience launching and scaling web and mobile platforms across B2C and B2B domains. My journey has been defined by taking products from zero to one, growing user bases exponentially, and driving substantial revenue growth.</p>
+                <p>I've led initiatives that grew a user base 180× and scaled revenue from ₹30K to ₹20L per month. I'm skilled in Agile delivery, UX optimization, A/B testing, and cross-functional team leadership.</p>
+                <p>What drives me is the challenge of converting manual workflows into scalable product systems. I thrive in the intersection of user needs, business goals, and technical feasibility — turning complex problems into elegant solutions that people love to use.</p>
+            </div>
+
+            <div>
+                <div class="philosophy-box">
+                    <h4>My PM Philosophy</h4>
+                    <p>Data informs. Humans decide. Metrics show patterns; conversations show truth. Great PMs listen to both.</p>
+                </div>
+
+                <div class="philosophy-box">
+                    <h4>What I Bring to Teams</h4>
+                    <p>I believe the best products are boringly simple for users and brutally effective for businesses. More adoption. More revenue. Less chaos behind the scenes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header" style="background-color: #fafafa;">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">Companies I've worked with and the impact I've driven</p>
+        </div>
+
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-company">
+                    <div class="experience-logo-container">
+                        <div class="experience-logo-icon">🐝</div>
+                        <div class="experience-logo-text">BHIVE</div>
+                    </div>
+                    <div class="company-name">BHIVE Group</div>
+                    <div class="company-duration">May 2024 - Present</div>
+                </div>
+                
+                <div class="experience-details">
+                    <h4>Product Manager</h4>
+                    
+                    <p class="experience-description">
+                        Led the complete 0→1 rebuild and relaunch of BHIVE's mobile app, transforming it from a basic booking tool into a full-featured self-serve platform across 30+ coworking centers. Drove product strategy, execution, and growth for multiple sub-products including Day Pass, Bulk Pass, Hot Desk, All Access, and WFA, managing the entire product lifecycle from ideation to scale.
+                    </p>
+                    
+                    <ul class="experience-highlights">
+                        <li>Scaled active users from &lt;100 to 18,000+ with 1,300+ monthly sign-ups through product-led growth and UX improvements</li>
+                        <li>Increased pass revenue from ₹30K to ₹20L/month (60× growth) by launching scalable monetization products</li>
+                        <li>Reduced manual operations by 70% via workflow automation, backend integrations, and self-serve product flows</li>
+                        <li>Improved checkout success rate by 30-40% through payment flow optimization and UX enhancements</li>
+                        <li>Owned Day Pass and Bulk Pass products generating ₹15-20L/month with Bulk Pass contributing 35-40% of total revenue</li>
+                        <li>Launched Hot Desk improving seat utilization by 18-22% and daily seat revenue by 1.4×</li>
+                        <li>Designed All Access for multi-location users, increasing cross-location usage by 3× and retention by 20-25%</li>
+                        <li>Co-owned Infinity platform managing 30,000+ seats, reducing revenue leakage by 15-20%</li>
+                    </ul>
+                    
+                    <div class="experience-metrics">
+                        <div class="metric-item">
+                            <div class="metric-item-value">18K+</div>
+                            <div class="metric-item-label">Active Users</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-value">₹20L</div>
+                            <div class="metric-item-label">Monthly Revenue</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-value">70%</div>
+                            <div class="metric-item-label">Ops Reduced</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-value">30+</div>
+                            <div class="metric-item-label">Centers</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <span class="tag">0-1 Product</span>
+                        <span class="tag">Mobile App</span>
+                        <span class="tag">B2C & B2B</span>
+                        <span class="tag">Revenue Growth</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Product-Led Growth</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">
+                    <div class="experience-logo-container">
+                        <div class="experience-logo-icon">🐝</div>
+                        <div class="experience-logo-text">BHIVE</div>
+                    </div>
+                    <div class="company-name">BHIVE Group</div>
+                    <div class="company-duration">Apr 2023 - Mar 2024</div>
+                </div>
+                
+                <div class="experience-details">
+                    <h4>Senior Business Analyst - Strategy & Ops</h4>
+                    
+                    <p class="experience-description">
+                        Owned analytics and data infrastructure for BHIVE's 30,000+ seat inventory across sales, renewals, and pricing operations. Built dashboards and data governance systems that enabled data-driven decision-making across product and operations teams.
+                    </p>
+                    
+                    <ul class="experience-highlights">
+                        <li>Owned analytics for closures, renewals, pricing, and expansions across 30,000+ seat inventory</li>
+                        <li>Built weekly dashboards on win-loss, sales aging, and rep performance to drive data-backed decisions</li>
+                        <li>Reduced operational inefficiencies and revenue leakage by identifying key pricing and process gaps</li>
+                        <li>Restructured CRM and data governance in HubSpot for greater reliability across product and ops teams</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Data Strategy</span>
+                        <span class="tag">HubSpot</span>
+                        <span class="tag">Operations</span>
+                        <span class="tag">Dashboards</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">
+                    <div class="experience-logo-container">
+                        <div class="experience-logo-icon">🐝</div>
+                        <div class="experience-logo-text">BHIVE</div>
+                    </div>
+                    <div class="company-name">BHIVE Group</div>
+                    <div class="company-duration">Nov 2022 - Mar 2024</div>
+                </div>
+                
+                <div class="experience-details">
+                    <h4>Business Associate - CEO's Office</h4>
+                    
+                    <p class="experience-description">
+                        Maintained central closure trackers and CRM workflows across Sales, Customer Success, Finance, and Operations teams. Supported the end-to-end lifecycle of renewals and expansions, gaining foundational exposure to pricing, seat planning, and funnel mechanics.
+                    </p>
+                    
+                    <ul class="experience-highlights">
+                        <li>Maintained central closure trackers and CRM workflows across Sales, CS, Finance, and Ops</li>
+                        <li>Identified data gaps in pricing and deposits, enabling early corrective action</li>
+                        <li>Supported end-to-end lifecycle of renewals and expansions</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tag">CRM</span>
+                        <span class="tag">Operations</span>
+                        <span class="tag">Cross-functional</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">
+                    <div class="experience-logo-container">
+                        <div class="experience-logo-icon" style="background-color: #FF9900;">📦</div>
+                        <div class="experience-logo-text">Amazon</div>
+                    </div>
+                    <div class="company-name">Amazon India</div>
+                    <div class="company-duration">Oct 2019 - Oct 2020</div>
+                </div>
+                
+                <div class="experience-details">
+                    <h4>RCO Investigation Specialist - EN</h4>
+                    
+                    <p class="experience-description">
+                        Conducted KYC and fraud investigations for Amazon UK sellers per global compliance SOPs. Built core skills in structured decision-making, risk evaluation, and high-volume workflow management while contributing to platform trust and policy adherence.
+                    </p>
+                    
+                    <ul class="experience-highlights">
+                        <li>Conducted KYC and fraud investigations for Amazon UK sellers per global compliance SOPs</li>
+                        <li>Strengthened accuracy and policy adherence in high-volume workflows</li>
+                        <li>Built foundational skills in structured decision-making and risk evaluation</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tag">Risk Management</span>
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Process Excellence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #E0F7FA;">
+        <div class="section-header" style="background-color: #E0F7FA;">
+            <h2 class="section-title">Impact at a Glance</h2>
+            <p class="section-subtitle">Key metrics from my product journey</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">180×</div>
+                <div class="metric-label">User Growth<br>From &lt;100 to 18,000+</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">60×</div>
+                <div class="metric-label">Revenue Growth<br>₹30K → ₹20L/month</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">70%</div>
+                <div class="metric-label">Operations Reduced<br>Through automation</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">30+</div>
+                <div class="metric-label">Centers Launched<br>Pan-India scale</div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #fafafa;">
+        <div class="section-header" style="background-color: #fafafa;">
+            <h2 class="section-title">My Product Work</h2>
+            <p class="section-subtitle">Deep dives into products I've built from scratch</p>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">📱</div>
+                <h3 class="project-title">The BHIVE Mobile App: 0→1 Rebuild = Revenue Scaling</h3>
+                <p class="project-description">Transformed a basic booking tool into a full-featured self-serve platform across 30+ centers, scaling from &lt;100 to 18,000+ active users and growing revenue 60× from ₹30K to ₹20L/month.</p>
+                <div>
+                    <span class="tag">0-1 Product</span>
+                    <span class="tag">Mobile</span>
+                    <span class="tag">Revenue Growth</span>
+                    <span class="tag">Product-Led Growth</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚀</div>
+                <h3 class="project-title">Bottom-Up Features Development: Hot Desk and All Access</h3>
+                <p class="project-description">Built two user-driven products from ground up: Hot Desk improving seat utilization by 18-22% and All Access increasing cross-location usage 3× with 20-25% retention boost.</p>
+                <div>
+                    <span class="tag">Feature Development</span>
+                    <span class="tag">User Research</span>
+                    <span class="tag">Retention</span>
+                    <span class="tag">Utilization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #E0F7FA;">
+        <div class="section-header" style="background-color: #E0F7FA;">
+            <h2 class="section-title">Case Study</h2>
+            <p class="section-subtitle">In-depth look at the BHIVE Mobile App rebuild</p>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-header">
+                <div class="case-study-icon">📱</div>
+                <h3 class="case-study-title">BHIVE Mobile App: 0→1 Rebuild & Revenue Scaling</h3>
+                <p class="case-study-subtitle">Transforming a basic booking tool into a comprehensive self-serve platform that scaled to 18,000+ users and ₹20L monthly revenue</p>
+                <div style="margin-top: 20px;">
+                    <span class="tag">Mobile Product</span>
+                    <span class="tag">0-1 Launch</span>
+                    <span class="tag">Product-Led Growth</span>
+                    <span class="tag">B2C & B2B</span>
+                </div>
+            </div>
+
+            <div class="case-study-section">
+                <h4 class="case-study-section-title">The Problem</h4>
+                <p class="case-study-content">
+                    BHIVE's existing mobile app was a minimal booking interface with limited functionality. Users couldn't self-serve, operations teams were overwhelmed with manual processes, and the platform wasn't generating significant revenue. The app had fewer than 100 active users and was bringing in only ₹30K per month.
+                </p>
+                <div class="case-study-highlights">
+                    <p class="case-study-highlights-title">Key Challenges:</p>
+                    <ul class="case-study-list">
+                        <li>No self-serve capabilities for users across 30+ centers</li>
+                        <li>Manual operations creating bottlenecks and inefficiencies</li>
+                        <li>Limited monetization with single product offering</li>
+                        <li>Poor user experience leading to low engagement</li>
+                        <li>No scalable infrastructure for growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-study-section">
+                <h4 class="case-study-section-title">The Solution</h4>
+                <p class="case-study-content">
+                    Led a complete 0→1 rebuild of the mobile app, transforming it into a full-featured platform. I drove product strategy, UX optimization, and the launch of multiple revenue-generating products including Day Pass, Bulk Pass, Hot Desk, All Access, and WFA.
+                </p>
+                <ul class="case-study-list">
+                    <li>Built self-serve booking flows reducing dependency on operations teams</li>
+                    <li>Designed and launched 5 distinct product lines with different use cases</li>
+                    <li>Implemented automated workflows and backend integrations</li>
+                    <li>Optimized payment flows to improve checkout success rates</li>
+                    <li>Created scalable architecture supporting 30+ locations</li>
+                </ul>
+            </div>
+
+            <div class="case-study-section">
+                <h4 class="case-study-section-title">My Role & Process</h4>
+                <p class="case-study-content">
+                    As Product Manager, I owned the end-to-end product lifecycle from ideation to scale. This included conducting user research, defining product requirements, collaborating with design and engineering teams, managing agile sprints, and tracking key metrics post-launch.
+                </p>
+                <ul class="case-study-list">
+                    <li>Conducted user interviews and analyzed behavioral data to identify pain points</li>
+                    <li>Created product roadmaps and prioritized features based on impact vs effort</li>
+                    <li>Wrote detailed PRDs and user stories for engineering teams</li>
+                    <li>Ran A/B tests on payment flows, onboarding, and key user journeys</li>
+                    <li>Coordinated cross-functional teams across product, design, engineering, and ops</li>
+                    <li>Monitored metrics daily and iterated based on user feedback and data</li>
+                </ul>
+            </div>
+
+            <div class="case-study-section">
+                <h4 class="case-study-section-title">Impact & Results</h4>
+                <div class="case-study-metrics">
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">180×</div>
+                        <div class="case-study-metric-label">User Growth</div>
+                    </div>
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">60×</div>
+                        <div class="case-study-metric-label">Revenue Growth</div>
+                    </div>
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">70%</div>
+                        <div class="case-study-metric-label">Ops Reduced</div>
+                    </div>
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">30-40%</div>
+                        <div class="case-study-metric-label">Checkout Boost</div>
+                    </div>
+                </div>
+                <ul class="case-study-list">
+                    <li>Scaled from &lt;100 to 18,000+ active users with 1,300+ monthly sign-ups</li>
+                    <li>Grew revenue from ₹30K to ₹20L per month (60× increase)</li>
+                    <li>Day Pass and Bulk Pass generating ₹15-20L/month combined</li>
+                    <li>Bulk Pass contributing 35-40% of total pass revenue</li>
+                    <li>Reduced manual operations by 70% through automation</li>
+                    <li>Improved checkout success rate by 30-40%</li>
+                </ul>
+            </div>
+
+            <div class="case-study-section">
+                <h4 class="case-study-section-title">Key Learnings</h4>
+                <p class="case-study-content">
+                    This project taught me the importance of balancing user needs with business goals, the power of data-driven iteration, and how automation can unlock exponential scale. Building multiple products simultaneously required sharp prioritization and ruthless focus on what moves the needle.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header" style="background-color: #fafafa; margin-top: 80px;">
+            <h3 style="font-size: 32px; margin-bottom: 20px; color: #333; font-weight: 300;">Skills & Expertise</h3>
+            <p style="color: #666;">Core competencies I bring to product development</p>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <div class="skill-accordion">
+                <div class="skill-accordion-item">
+                    <div class="skill-accordion-header" onclick="toggleSkill(0)">
+                        <span class="skill-accordion-title">Product & Strategy</span>
+                        <span class="skill-accordion-icon" id="icon-0">▼</span>
+                    </div>
+                    <div class="skill-accordion-content" id="content-0">
+                        <ul>
+                            <li>Product Strategy</li>
+                            <li>Roadmaps & PRDs</li>
+                            <li>User Stories</li>
+                            <li>Prioritization Frameworks</li>
+                            <li>OKRs & Metrics</li>
+                            <li>Monetization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-accordion-item">
+                    <div class="skill-accordion-header" onclick="toggleSkill(1)">
+                        <span class="skill-accordion-title">Execution & Agile</span>
+                        <span class="skill-accordion-icon" id="icon-1">▼</span>
+                    </div>
+                    <div class="skill-accordion-content" id="content-1">
+                        <ul>
+                            <li>Agile & Scrum</li>
+                            <li>Sprint Planning</li>
+                            <li>Stakeholder Management</li>
+                            <li>Cross-Functional Collaboration</li>
+                            <li>Release Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-accordion-item">
+                    <div class="skill-accordion-header" onclick="toggleSkill(2)">
+                        <span class="skill-accordion-title">UX & Design</span>
+                        <span class="skill-accordion-icon" id="icon-2">▼</span>
+                    </div>
+                    <div class="skill-accordion-content" id="content-2">
+                        <ul>
+                            <li>UX Optimization</li>
+                            <li>UI/UX Design</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>User Research</li>
+                            <li>Figma</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-accordion-item">
+                    <div class="skill-accordion-header" onclick="toggleSkill(3)">
+                        <span class="skill-accordion-title">Analytics & Data</span>
+                        <span class="skill-accordion-icon" id="icon-3">▼</span>
+                    </div>
+                    <div class="skill-accordion-content" id="content-3">
+                        <ul>
+                            <li>A/B Testing</li>
+                            <li>Funnel Analysis</li>
+                            <li>Cohort Analysis</li>
+                            <li>Conversion Optimization</li>
+                            <li>Retention & LTV</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-accordion-item">
+                    <div class="skill-accordion-header" onclick="toggleSkill(4)">
+                        <span class="skill-accordion-title">Tools & Platforms</span>
+                        <span class="skill-accordion-icon" id="icon-4">▼</span>
+                    </div>
+                    <div class="skill-accordion-content" id="content-4">
+                        <ul>
+                            <li>Jira & Confluence</li>
+                            <li>HubSpot</li>
+                            <li>Figma</li>
+                            <li>SQL</li>
+                            <li>Mobile & Web Products</li>
+                            <li>Internal Tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="background-color: #fafafa;">
+            <h2 class="section-title">Just FYI....</h2>
+        </div>
+
+        <div class="companies-education-container">
+            <div class="companies-section">
+                <h3 class="section-heading">Companies I've Worked With</h3>
+                
+                <div class="company-card">
+                    <div class="company-logo-container">
+                        <div class="company-logo-icon">🐝</div>
+                        <div class="company-logo-text">BHIVE</div>
+                    </div>
+                    <div class="company-text-name">BHIVE Group</div>
+                    <div class="company-status">Current</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-logo-container">
+                        <div class="company-logo-icon" style="background-color: #FF9900;">📦</div>
+                        <div class="company-logo-text">Amazon</div>
+                    </div>
+                    <div class="company-text-name">Amazon India</div>
+                    <div class="company-status">Past</div>
+                </div>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <div class="education-section">
+                <h3 class="section-heading">Education</h3>
+                
+                <div class="education-card">
+                    <div class="education-degree">Master's in Business Administration (MBA)</div>
+                    <div class="education-institution">Manipal Academy of Higher Education, Mahe</div>
+                    <div class="education-duration">November 2020 - June 2022</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-degree">B.E., Aeronautical Engineering</div>
+                    <div class="education-institution">Mangalore Institute of Technology</div>
+                    <div class="education-duration">June 2015 - August 2019</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #E0F7FA;">
+        <div class="section-header" style="background-color: #E0F7FA;">
+            <h2 class="section-title">Testimonials</h2>
+            <p class="section-subtitle">What colleagues and leaders say about working with me</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Sridevi approached operations like a true Product Manager — identifying inefficiencies, building scalable systems, and using data to drive decisions. Her ownership of inventory, analytics, and cross-team workflows significantly improved product operations and business outcomes."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RO</div>
+                    <div class="author-info">
+                        <h5>Rohit</h5>
+                        <p>CTO, BHIVE Group</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Working with Sridevi was both amazing and mildly threatening — because she'd walk into design reviews with sharper UX instincts than most PMs (and sometimes designers 😄). She pushes for better experiences, respects craft, and makes collaboration feel easy and genuinely fun."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <h5>Snehal Kumar</h5>
+                        <p>Lead Product Designer, BHIVE Group</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Watching Sridevi work as a PM is like watching someone quietly clean up chaos and turn it into scalable product wins. She blends sharp product thinking with deep execution — the rare combo that actually delivers outcomes."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SS</div>
+                    <div class="author-info">
+                        <h5>Steffy Soni</h5>
+                        <p>Senior Product Manager, Keka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header" style="background-color: #fafafa;">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">I'm always open to discussing product management opportunities, collaborations, or just chatting about building great products</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-links">
+                <a href="mailto:sridevibhat666@gmail.com" class="contact-btn btn-primary">Email Me</a>
+                <a href="https://www.linkedin.com/in/sridevi-bhat" target="_blank" class="contact-btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sridevi. Designed & Built with ❤️</p>
+    </footer>
+
+    <script>
+        function toggleSkill(index) {
+            const content = document.getElementById('content-' + index);
+            const icon = document.getElementById('icon-' + index);
+            
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
