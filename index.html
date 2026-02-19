@@ -829,47 +829,6 @@ footer p{font-size:13px;font-weight:300}
     });
   });
 
-  // Email copy fallback
-  var EMAIL = 'sridevibhat666@gmail.com';
-  function handleEmail(e) {
-    e.preventDefault();
-    // Try mailto first
-    var win = window.open('mailto:' + EMAIL, '_self');
-    // If mailto fails, copy to clipboard and show toast
-    setTimeout(function() {
-      if (!win || win.closed) {
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(EMAIL).then(function() { showToast(); });
-        } else {
-          var ta = document.createElement('textarea');
-          ta.value = EMAIL;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          showToast();
-        }
-      }
-    }, 500);
-  }
-  function showToast() {
-    var t = document.getElementById('toast');
-    if (!t) {
-      t = document.createElement('div');
-      t.id = 'toast';
-      t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#006064;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:opacity .3s';
-      document.body.appendChild(t);
-    }
-    t.textContent = '✓ Email copied — ' + EMAIL;
-    t.style.opacity = '1';
-    clearTimeout(t._hide);
-    t._hide = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
-  }
-  var hBtn = document.getElementById('heroEmail');
-  var eBtn = document.getElementById('emailBtn');
-  if (hBtn) hBtn.addEventListener('click', handleEmail);
-  if (eBtn) eBtn.addEventListener('click', handleEmail);
-
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
