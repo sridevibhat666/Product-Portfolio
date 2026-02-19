@@ -376,7 +376,7 @@ footer p{font-size:13px;font-weight:300}
   <div class="hero-content">
     <h1>Hi, I'm <span class="hl">Sridevi</span>,<br>a Product Manager</h1>
     <p class="hero-sub">I spend my time with unclear problems, shaping them into products that quietly help, also binge way too much Netflix.</p>
-    <a href="mailto:sridevibhat666@gmail.com" class="hero-cta">Get in Touch <span class="cta-arrow">↗</span></a>
+          <a href="mailto:sridevibhat666@gmail.com" class="hero-cta" id="heroEmail">Get in Touch <span class="cta-arrow">↗</span></a>
   </div>
   <div class="ticker-strip">
     <div class="ticker-content">
@@ -729,7 +729,7 @@ footer p{font-size:13px;font-weight:300}
   </div>
   <div class="contact-content">
     <div class="contact-btns">
-      <a href="mailto:sridevibhat666@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="mailto:sridevibhat666@gmail.com" class="btn btn-primary" id="emailBtn">Email Me</a>
       <a href="https://www.linkedin.com/in/sridevi-bhat" target="_blank" class="btn btn-secondary">LinkedIn</a>
     </div>
   </div>
@@ -828,6 +828,47 @@ footer p{font-size:13px;font-weight:300}
       activateStep(this.getAttribute('data-card'), this.getAttribute('data-step'));
     });
   });
+
+  // Email copy fallback
+  var EMAIL = 'sridevibhat666@gmail.com';
+  function handleEmail(e) {
+    e.preventDefault();
+    // Try mailto first
+    var win = window.open('mailto:' + EMAIL, '_self');
+    // If mailto fails, copy to clipboard and show toast
+    setTimeout(function() {
+      if (!win || win.closed) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(EMAIL).then(function() { showToast(); });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = EMAIL;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        }
+      }
+    }, 500);
+  }
+  function showToast() {
+    var t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast';
+      t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#006064;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:opacity .3s';
+      document.body.appendChild(t);
+    }
+    t.textContent = '✓ Email copied — ' + EMAIL;
+    t.style.opacity = '1';
+    clearTimeout(t._hide);
+    t._hide = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
+  }
+  var hBtn = document.getElementById('heroEmail');
+  var eBtn = document.getElementById('emailBtn');
+  if (hBtn) hBtn.addEventListener('click', handleEmail);
+  if (eBtn) eBtn.addEventListener('click', handleEmail);
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
