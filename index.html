@@ -41,10 +41,10 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .mobile-menu a:hover{color:var(--c)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 24px 100px;background:linear-gradient(135deg,#006064,#00838F 40%,#00BCD4);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);top:-200px;right:-200px;border-radius:50%;animation:pulse 4s ease-in-out infinite;pointer-events:none}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.3}}
-.hero-content{max-width:800px;position:relative;z-index:2}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 24px 100px;background:url('https://raw.githubusercontent.com/sridevibhat666/Product-Portfolio/refs/heads/main/Gemini_Generated_Image_fejx13fejx13fejx.png') center center/cover no-repeat;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:64px;background:linear-gradient(to right,rgba(0,40,44,.85) 0%,rgba(0,60,64,.7) 55%,transparent 100%);z-index:1;pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.hero-content{max-width:800px;}
 .hero h1{font-size:clamp(40px,8vw,72px);font-weight:700;line-height:1.2;margin-bottom:24px;color:#fff;letter-spacing:-1px}
 .hero h1 .hl{color:#E0F7FA;text-shadow:0 2px 20px rgba(224,247,250,.3)}
 .hero-sub{font-size:clamp(16px,3vw,24px);color:rgba(255,255,255,.92);margin-bottom:40px;line-height:1.6;font-weight:400;max-width:600px}
@@ -350,7 +350,7 @@ footer p{font-size:13px;font-weight:300}
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-wrap">
-    <a href="#home" class="logo">Sridevi</a>
+    <a href="#home" class="logo">Sridevi Bhat</a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -828,6 +828,47 @@ footer p{font-size:13px;font-weight:300}
       activateStep(this.getAttribute('data-card'), this.getAttribute('data-step'));
     });
   });
+
+  // Email copy fallback
+  var EMAIL = 'sridevibhat666@gmail.com';
+  function handleEmail(e) {
+    e.preventDefault();
+    // Try mailto first
+    var win = window.open('mailto:' + EMAIL, '_self');
+    // If mailto fails, copy to clipboard and show toast
+    setTimeout(function() {
+      if (!win || win.closed) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(EMAIL).then(function() { showToast(); });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = EMAIL;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        }
+      }
+    }, 500);
+  }
+  function showToast() {
+    var t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast';
+      t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#006064;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:opacity .3s';
+      document.body.appendChild(t);
+    }
+    t.textContent = '✓ Email copied — ' + EMAIL;
+    t.style.opacity = '1';
+    clearTimeout(t._hide);
+    t._hide = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
+  }
+  var hBtn = document.getElementById('heroEmail');
+  var eBtn = document.getElementById('emailBtn');
+  if (hBtn) hBtn.addEventListener('click', handleEmail);
+  if (eBtn) eBtn.addEventListener('click', handleEmail);
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
