@@ -28,8 +28,6 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--c);transition:width .3s}
 .nav-links a:hover{color:var(--c)}
 .nav-links a:hover::after{width:100%}
-
-/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .hamburger span{display:block;width:24px;height:2px;background:var(--t);border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -43,12 +41,11 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 24px 100px;background:url('https://raw.githubusercontent.com/sridevibhat666/Product-Portfolio/refs/heads/main/Gemini_Generated_Image_fejx13fejx13fejx.png') center center/cover no-repeat;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:64px;background:linear-gradient(to right,rgba(0,40,44,.85) 0%,rgba(0,60,64,.7) 55%,transparent 100%);z-index:1;pointer-events:none}
-.hero-content{position:relative;z-index:2}
-.hero-content{max-width:800px;}
+.hero-content{position:relative;z-index:2;max-width:800px}
 .hero h1{font-size:clamp(40px,8vw,72px);font-weight:700;line-height:1.2;margin-bottom:24px;color:#fff;letter-spacing:-1px}
 .hero h1 .hl{color:#E0F7FA;text-shadow:0 2px 20px rgba(224,247,250,.3)}
 .hero-sub{font-size:clamp(16px,3vw,24px);color:rgba(255,255,255,.92);margin-bottom:40px;line-height:1.6;font-weight:400;max-width:600px}
-.hero-cta{color:#fff;text-decoration:none;font-size:16px;font-weight:300;letter-spacing:.3px;display:inline-flex;align-items:center;gap:12px;transition:all .3s}
+.hero-cta{color:#fff;text-decoration:none;font-size:16px;font-weight:300;letter-spacing:.3px;display:inline-flex;align-items:center;gap:12px;transition:all .3s;background:none;border:none;cursor:pointer}
 .cta-arrow{width:36px;height:36px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s}
 .hero-cta:hover .cta-arrow{background:#fff;color:#006064;border-color:#fff;transform:rotate(45deg)}
 
@@ -62,7 +59,7 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 
 /* SECTIONS */
 .sec{padding:80px 24px;max-width:1200px;margin:0 auto}
-.sec-head{text-align:center;margin-bottom:60px;padding:20px 0}
+.sec-head{text-align:center;margin-bottom:60px;padding:20px 0;position:sticky;top:60px;z-index:100;background:var(--bg)}
 .sec-title{font-size:clamp(26px,5vw,36px);font-weight:400;color:var(--t);margin-bottom:20px;letter-spacing:-.3px}
 .sec-sub{font-size:15px;color:var(--t2);max-width:600px;margin:0 auto;line-height:1.8;font-weight:300}
 
@@ -83,7 +80,7 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .exp-timeline{margin-top:60px}
 .exp-item{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:48px 0;border-bottom:1px solid var(--bc);align-items:start}
 .exp-item:last-child{border-bottom:none}
-.exp-co{text-align:right;position:sticky;top:80px;align-self:start}
+.exp-co{text-align:right;position:sticky;top:80px;align-self:start;z-index:10}
 .exp-logo-row{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:12px}
 .exp-logo{width:44px;height:44px;border:2px solid var(--b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:all .3s;letter-spacing:-.5px}
 .exp-logo.bhive{background:linear-gradient(135deg,#FFD54F,#FFA726);color:#fff;border:none;box-shadow:0 4px 12px rgba(255,193,7,.25)}
@@ -112,8 +109,9 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .tag:hover{background:var(--c);color:#fff;border-color:var(--c);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,188,212,.2)}
 
 /* METRICS */
-.metrics-outer{background:var(--cl);padding:80px 0;overflow:hidden}
+.metrics-outer{background:var(--cl);padding:80px 0;overflow:visible}
 .metrics-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.metrics-inner .sec-head{background:var(--cl)}
 .metrics-scroll-wrap{position:relative}
 .metrics-scroll-wrap::after{content:'';position:absolute;top:0;right:0;bottom:20px;width:120px;background:linear-gradient(to left,var(--cl),transparent);pointer-events:none;z-index:10}
 .metrics-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background:var(--w);border:2px solid var(--c);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--c);cursor:pointer;z-index:20;box-shadow:0 4px 16px rgba(0,188,212,.2);transition:all .3s}
@@ -130,21 +128,20 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .m-lbl{font-size:13px;color:var(--t2);font-weight:300;line-height:1.6}
 
 /* PROJECTS */
-.proj-outer{background:var(--bg);padding:80px 24px}
+.proj-outer{background:var(--bg);padding:80px 24px;overflow:visible}
 .proj-outer .sec-head{max-width:1200px;margin-left:auto;margin-right:auto}
 .proj-inner{max-width:1200px;margin:40px auto 0;display:flex;flex-direction:column;gap:40px}
-.jcard{background:var(--w);border:3px solid #006064;transition:all .3s;overflow:hidden;box-shadow:6px 6px 0 rgba(0,96,100,.15)}
+.jcard{background:var(--w);border:3px solid #006064;transition:all .3s;overflow:visible;box-shadow:6px 6px 0 rgba(0,96,100,.15)}
 .jcard:hover{box-shadow:10px 10px 0 rgba(0,96,100,.25);border-color:var(--cm)}
 .jcard-preview{cursor:pointer;display:grid;grid-template-columns:280px 1fr;align-items:start}
 .jcard-preview.rev{grid-template-columns:1fr 280px}
 
-/* MOBILE MOCKUP */
-.mob{width:280px;height:560px;background:#1a1a1a;border-radius:28px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;margin:-16px 0 -16px -16px;flex-shrink:0}
-.mob.mob-r{margin:-16px -16px -16px 0;border-radius:28px 0 0 28px}
+/* PHONE MOCKUP */
+.mob{width:280px;height:560px;background:#1a1a1a;border-radius:28px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;margin:16px 0 16px 16px;flex-shrink:0}
+.mob.mob-r{margin:16px 16px 16px 0}
 .mob::before{content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);width:70px;height:20px;background:#1a1a1a;border-radius:0 0 14px 14px;z-index:10}
 .mob::after{content:'';position:absolute;top:24px;left:50%;transform:translateX(-50%);width:44px;height:4px;background:#333;border-radius:2px;z-index:11}
 .mob-screen{width:100%;height:100%;background:linear-gradient(135deg,#00BCD4 0%,#0097A7 50%,#006064 100%);border-radius:20px;overflow:hidden;position:relative}
-.mob-screen.mob-screen-r{border-radius:20px 0 0 20px}
 .mob-scroll{position:absolute;top:0;left:0;right:0;animation:mobScroll 15s linear infinite;padding:40px 14px 14px}
 .mob:hover .mob-scroll{animation-play-state:paused}
 @keyframes mobScroll{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
@@ -155,7 +152,7 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .mob-mv{font-size:15px;font-weight:700;color:var(--c)}
 .mob-ml{font-size:9px;color:var(--t2);text-transform:uppercase}
 
-/* CARD INFO */
+/* JCARD INFO */
 .jcard-info{padding:28px;display:flex;flex-direction:column;justify-content:center;min-height:520px}
 .jcard-chips{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .jcard-chip{padding:5px 12px;background:var(--cl);color:var(--cm);font-size:11px;font-weight:600;border:2px solid var(--c);text-transform:uppercase;letter-spacing:.5px}
@@ -167,7 +164,7 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .jcard-more::after{content:'→';font-size:17px;transition:transform .3s}
 .jcard-more:hover::after{transform:translateX(4px)}
 
-/* CARD BODY */
+/* EXPAND BODY */
 .jcard-body{max-height:0;overflow:hidden;transition:max-height .5s ease;border-top:3px solid var(--cl)}
 .jcard-body.open{max-height:2400px}
 .jcard-body-inner{padding:28px 24px 40px;background:var(--bg)}
@@ -196,21 +193,22 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .jtags{margin-top:24px;padding-top:24px;border-top:2px solid var(--cl)}
 
 /* CASE STUDY */
-.cs-outer{background:var(--cl);padding:80px 24px}
+.cs-outer{background:var(--cl);padding:80px 24px;overflow:visible}
+.cs-outer .sec-head{background:var(--cl)}
 .cs-wrap{background:var(--w);border:1px solid var(--bc);padding:40px 32px;max-width:1200px;margin:0 auto;transition:all .3s;border-radius:var(--r)}
 .cs-wrap:hover{border-color:var(--c);box-shadow:0 8px 32px rgba(0,188,212,.12)}
 .cs-layout{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start}
-.cs-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--c),#26C6DA);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;box-shadow:0 4px 16px rgba(0,188,212,.25)}
 .cs-title{font-size:clamp(20px,3vw,26px);font-weight:600;color:var(--cm);margin-bottom:12px;letter-spacing:-.3px;line-height:1.3}
-.cs-subtitle{font-size:14px;color:var(--t2);font-weight:400;line-height:1.7;margin-bottom:20px}
-.cs-tags{margin-bottom:24px;display:flex;gap:8px;flex-wrap:wrap}
-.cs-tags .tag{background:var(--cl);color:var(--cm);border:none;padding:6px 12px;font-size:11px;font-weight:500;border-radius:6px}
-.cs-divider{display:flex;align-items:center;gap:12px;margin:24px 0;padding:12px 0}
-.cs-divider-line{flex:1;height:2px;background:linear-gradient(to right,transparent,var(--c),transparent)}
-.cs-divider-text{font-size:11px;font-weight:600;color:var(--cm);text-transform:uppercase;letter-spacing:1.2px;display:flex;flex-direction:column;align-items:center;gap:6px}
-.cs-chevron{font-size:16px;color:var(--c);animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.cs-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.cs-subtitle{font-size:14px;color:var(--t2);font-weight:400;line-height:1.7;margin-bottom:16px}
+.cs-proto-btn{display:inline-flex;align-items:center;gap:12px;margin:0 0 16px;color:var(--cdd);font-size:15px;font-weight:300;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--c)}
+.cs-proto-arrow{width:32px;height:32px;border:1px solid var(--c);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:var(--cdd);flex-shrink:0;transition:all .3s}
+.cs-proto-btn:hover .cs-proto-arrow{background:var(--cdd);color:#fff;border-color:var(--cdd);transform:rotate(45deg)}
+.cs-explore{border-top:1px solid var(--bc);margin-top:20px;padding-top:16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.cs-explore-label{font-size:11px;font-weight:600;color:var(--cm);text-transform:uppercase;letter-spacing:1.2px}
+.cs-explore-arrow{font-size:12px;color:var(--c);transition:transform .3s;display:inline-block}
+.cs-tabs-wrap{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.cs-tabs-wrap.open{max-height:400px}
+.cs-tabs{display:flex;gap:8px;flex-wrap:wrap;padding-top:14px}
 .cs-tab{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--w);border:2px solid var(--cl);border-radius:8px;cursor:pointer;transition:all .3s;white-space:nowrap}
 .cs-tab-icon{font-size:15px}
 .cs-tab-label{font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;transition:color .3s}
@@ -244,7 +242,7 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .skill-body li:hover{color:var(--t);padding-left:22px}
 .skill-body li::before{content:"•";position:absolute;left:0;color:var(--c)}
 
-/* COMPANIES + EDU */
+/* COMPANIES & EDU */
 .ce-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:48px auto 0}
 .ce-col{background:var(--w);border:1px solid var(--bc);border-radius:var(--r);padding:32px;transition:all .3s}
 .ce-col:hover{border-color:var(--c);box-shadow:0 4px 20px rgba(0,188,212,.1)}
@@ -266,7 +264,8 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .edu-dur{font-size:11px;color:var(--t3);font-weight:300}
 
 /* TESTIMONIALS */
-.testi-outer{background:var(--cl);padding:80px 24px}
+.testi-outer{background:var(--cl);padding:80px 24px;overflow:visible}
+.testi-outer .sec-head{background:var(--cl)}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1200px;margin:48px auto 0}
 .testi-card{background:var(--w);padding:36px 28px;border:1px solid var(--bc);transition:all .3s;border-radius:var(--r)}
 .testi-card:hover{border-color:var(--c);box-shadow:0 8px 24px rgba(0,188,212,.15);transform:translateY(-4px)}
@@ -285,22 +284,19 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .btn-secondary{background:transparent;color:var(--c);border:1px solid var(--c)}
 .btn-secondary:hover{background:var(--cl);transform:translateY(-2px)}
 
-/* FOOTER */
 footer{background:var(--cl);color:var(--cm);padding:48px 24px;text-align:center;border-top:1px solid var(--bc)}
 footer p{font-size:13px;font-weight:300}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr}
   .exp-item{grid-template-columns:1fr;gap:20px}
   .exp-co{text-align:left;position:static;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
   .exp-logo-row{margin-bottom:0}
-  .exp-co-name,.exp-dur{font-size:13px}
   .cs-layout{grid-template-columns:1fr}
   .cs-right{border-left:none;padding-left:0;border-top:1px solid var(--cl);padding-top:32px;margin-top:8px}
   .ce-grid{grid-template-columns:1fr}
 }
-
 @media(max-width:768px){
   nav{padding:16px 0}
   .nav-links{display:none}
@@ -315,31 +311,13 @@ footer p{font-size:13px;font-weight:300}
   .jcard-preview,.jcard-preview.rev{grid-template-columns:1fr!important}
   .mob,.mob.mob-r{display:none}
   .jcard-info{min-height:auto;padding:24px 20px}
-  .jcard-title{font-size:20px}
-  .stepper{padding:24px 0 20px;gap:4px}
-  .stepper::before{left:40px;right:40px}
-  .step{min-width:56px}
-  .step-dot{width:40px;height:40px;font-size:16px}
-  .step-lbl{font-size:10px}
-  .panel-wrap{padding:20px}
-  .cs-wrap{padding:28px 20px}
-  .cs-tabs{gap:6px}
-  .cs-tab{padding:6px 10px}
-  .cs-tab-label{font-size:10px}
   .testi-grid{grid-template-columns:1fr}
   .contact-btns{flex-direction:column;align-items:center}
   .btn{width:100%;max-width:280px;text-align:center}
   .ce-grid{margin-top:32px}
 }
-
 @media(max-width:480px){
   .hero h1{font-size:36px}
-  .hero-sub{font-size:16px}
-  .sec-title{font-size:26px}
-  .jcard{box-shadow:4px 4px 0 rgba(0,96,100,.15)}
-  .exp-card{padding:20px}
-  .stepper::before{display:none}
-  .step-lbl{display:none}
   .m-card{min-width:180px;padding:24px 20px}
   .m-val{font-size:28px}
 }
@@ -347,7 +325,6 @@ footer p{font-size:13px;font-weight:300}
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-wrap">
     <a href="#home" class="logo">Sridevi Bhat</a>
@@ -357,13 +334,10 @@ footer p{font-size:13px;font-weight:300}
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home" class="mmlink">Home</a>
   <a href="#about" class="mmlink">About</a>
@@ -376,7 +350,7 @@ footer p{font-size:13px;font-weight:300}
   <div class="hero-content">
     <h1>Hi, I'm <span class="hl">Sridevi</span>,<br>a Product Manager</h1>
     <p class="hero-sub">I spend my time with unclear problems, shaping them into products that quietly help, also binge way too much Netflix.</p>
-          <a href="mailto:sridevibhat666@gmail.com" class="hero-cta" id="heroEmail">Get in Touch <span class="cta-arrow">↗</span></a>
+    <button class="hero-cta" id="heroEmail">Get in Touch <span class="cta-arrow">↗</span></button>
   </div>
   <div class="ticker-strip">
     <div class="ticker-content">
@@ -388,9 +362,7 @@ footer p{font-size:13px;font-weight:300}
 
 <!-- ABOUT -->
 <section class="sec" id="about">
-  <div class="sec-head">
-    <h2 class="sec-title">About Me</h2>
-  </div>
+  <div class="sec-head"><h2 class="sec-title">About Me</h2></div>
   <div class="about-grid">
     <div class="about-box">
       <h3>Background</h3>
@@ -399,30 +371,22 @@ footer p{font-size:13px;font-weight:300}
       <p>What drives me is the challenge of converting manual workflows into scalable product systems. I thrive in the intersection of user needs, business goals, and technical feasibility — turning complex problems into elegant solutions that people love to use.</p>
     </div>
     <div>
-      <div class="phil-box">
-        <h4>My PM Philosophy</h4>
-        <p>Data informs. Humans decide. Metrics show patterns; conversations show truth. Great PMs listen to both.</p>
-      </div>
-      <div class="phil-box">
-        <h4>What I Bring to Teams</h4>
-        <p>I believe the best products are boringly simple for users and brutally effective for businesses. More adoption. More revenue. Less chaos behind the scenes.</p>
-      </div>
+      <div class="phil-box"><h4>My PM Philosophy</h4><p>Data informs. Humans decide. Metrics show patterns; conversations show truth. Great PMs listen to both.</p></div>
+      <div class="phil-box"><h4>What I Bring to Teams</h4><p>I believe the best products are boringly simple for users and brutally effective for businesses. More adoption. More revenue. Less chaos behind the scenes.</p></div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="sec" id="work">
-  <div class="sec-head">
-    <h2 class="sec-title">Experience</h2>
-    <p class="sec-sub">Companies I've worked with and the impact I've driven</p>
-  </div>
+<section class="sec" id="work" style="display:none">
+  <div class="sec-head"><h2 class="sec-title">Experience</h2><p class="sec-sub">Companies I've worked with and the impact I've driven</p></div>
   <div class="exp-timeline">
+
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
         <div class="exp-co-name">BHIVE Group</div>
-        <div class="exp-dur">May 2024 – Present</div>
+        <div class="exp-dur">Apr 2024 – Present</div>
       </div>
       <div class="exp-card">
         <h4>Product Manager</h4>
@@ -444,13 +408,11 @@ footer p{font-size:13px;font-weight:300}
           <span class="sub-label">Work From Anywhere (WFA)</span>
           <ul class="bul"><li>Launched WFA for startups and enterprises; reduced onboarding friction by ~40% via centralized admin and reporting</li><li>Opened new B2B acquisition channels beyond Bangalore through distributed access offerings</li></ul>
         </div>
-        <div class="inner-box">
-          <h5>Internal Platform – Infinity</h5>
-          <ul class="bul"><li>Co-owned Infinity, an internal seat inventory and deal tracking platform managing 30,000+ seats</li><li>Centralized inventory and deal visibility, reducing revenue leakage by ~15–20%</li><li>Improved deal closure speed by ~30% through automation, data transparency, and cross-team coordination</li></ul>
-        </div>
+        <div class="inner-box"><h5>Internal Platform – Infinity</h5><ul class="bul"><li>Co-owned Infinity, an internal seat inventory and deal tracking platform managing 30,000+ seats</li><li>Centralized inventory and deal visibility, reducing revenue leakage by ~15–20%</li><li>Improved deal closure speed by ~30% through automation, data transparency, and cross-team coordination</li></ul></div>
         <div class="tags"><span class="tag">0-1 Product</span><span class="tag">Mobile App</span><span class="tag">B2C &amp; B2B</span><span class="tag">Revenue Growth</span><span class="tag">Automation</span><span class="tag">Product-Led Growth</span><span class="tag">Multi-Product Owner</span><span class="tag">Platform Development</span></div>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
@@ -460,23 +422,25 @@ footer p{font-size:13px;font-weight:300}
       <div class="exp-card">
         <h4>Senior Business Analyst – Strategy &amp; Ops</h4>
         <p class="exp-desc">Owned analytics and data infrastructure for BHIVE's 30,000+ seat inventory across sales, renewals, and pricing operations.</p>
-        <ul class="bul"><li>Owned analytics for closures, renewals, pricing across 30,000+ seats</li><li>Built weekly dashboards on win-loss, sales aging, and rep performance</li><li>Reduced operational inefficiencies by identifying pricing and process gaps</li><li>Restructured CRM and data governance in HubSpot</li></ul>
+        <ul class="bul"><li>Led Revenue Operations analytics and data infrastructure for BHIVE's 30,000+ seat portfolio across Sales, Renewals, and Pricing</li><li>Built and automated KPI dashboards tracking win–loss analysis, pipeline management, sales forecasting accuracy, and rep performance</li><li>Performed pricing analysis and process optimization to reduce revenue leakage and improve margin realization</li><li>Restructured HubSpot CRM architecture and implemented data governance frameworks to improve reporting accuracy and cross-functional visibility</li></ul>
         <div class="tags"><span class="tag">Analytics</span><span class="tag">Data Strategy</span><span class="tag">HubSpot</span><span class="tag">Operations</span><span class="tag">Dashboards</span></div>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
         <div class="exp-co-name">BHIVE Group</div>
-        <div class="exp-dur">Nov 2022 – Mar 2024</div>
+        <div class="exp-dur">Nov 2022 – Mar 2023</div>
       </div>
       <div class="exp-card">
         <h4>Business Associate – CEO's Office</h4>
         <p class="exp-desc">Maintained central closure trackers and CRM workflows across Sales, CS, Finance, and Operations.</p>
-        <ul class="bul"><li>Maintained central closure trackers and CRM workflows</li><li>Identified data gaps in pricing and deposits</li><li>Supported end-to-end lifecycle of renewals and expansions</li></ul>
+        <ul class="bul"><li>Managed centralized closure tracking systems and optimized CRM workflows across Sales, Customer Success, Finance, and Operations</li><li>Identified and resolved data gaps in pricing, deposits, and revenue tracking to improve reporting accuracy</li><li>Supported end-to-end lifecycle management of renewals and expansions, ensuring process compliance and revenue visibility</li></ul>
         <div class="tags"><span class="tag">CRM</span><span class="tag">Operations</span><span class="tag">Cross-functional</span></div>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo amazon">a</div><div class="exp-logo-name">Amazon</div></div>
@@ -486,20 +450,18 @@ footer p{font-size:13px;font-weight:300}
       <div class="exp-card">
         <h4>RCO Investigation Specialist – EN</h4>
         <p class="exp-desc">Conducted KYC and fraud investigations for Amazon UK sellers per global compliance SOPs.</p>
-        <ul class="bul"><li>Conducted KYC and fraud investigations for Amazon UK sellers</li><li>Strengthened accuracy and policy adherence in high-volume workflows</li><li>Built foundational skills in structured decision-making</li></ul>
+        <ul class="bul"><li>Conducted KYC and fraud investigations for Amazon UK sellers in compliance with global regulatory and internal SOP standards</li><li>Reviewed high-volume seller accounts to ensure policy adherence, risk mitigation, and investigation accuracy</li><li>Applied structured decision-making and analytical frameworks to resolve compliance cases efficiently</li></ul>
         <div class="tags"><span class="tag">Risk Management</span><span class="tag">Compliance</span><span class="tag">Process Excellence</span></div>
       </div>
     </div>
+
   </div>
 </section>
 
 <!-- METRICS -->
 <div class="metrics-outer">
   <div class="metrics-inner">
-    <div class="sec-head">
-      <h2 class="sec-title">Impact at a Glance</h2>
-      <p class="sec-sub">Key metrics from my product journey</p>
-    </div>
+    <div class="sec-head"><h2 class="sec-title">Impact at a Glance</h2><p class="sec-sub">Key metrics from my product journey</p></div>
     <div class="metrics-scroll-wrap">
       <div class="metrics-arrow" id="marrow">→</div>
       <div class="metrics-scroll" id="mscroll">
@@ -523,12 +485,10 @@ footer p{font-size:13px;font-weight:300}
 <!-- PROJECTS -->
 <div class="proj-outer">
   <div style="max-width:1200px;margin:0 auto">
-    <div class="sec-head">
-      <h2 class="sec-title">My Product Work</h2>
-      <p class="sec-sub">Deep dives into products I've built from scratch</p>
-    </div>
+    <div class="sec-head"><h2 class="sec-title">My Product Work</h2><p class="sec-sub">Deep dives into products I've built from scratch</p></div>
   </div>
   <div class="proj-inner">
+
     <div class="jcard">
       <div class="jcard-preview" id="prev0">
         <div class="mob">
@@ -572,11 +532,7 @@ footer p{font-size:13px;font-weight:300}
             <div class="panel" data-card="0" data-panel="4"><div class="panel-text"><strong>A structural business transformation — not incremental product development</strong>Before: sales-driven pass allocation, manual booking, limited digital monetization. After: a product-led growth engine with self-serve monetization, QR-enabled access, centralized inventory intelligence, and ₹15–20L/month pass revenue across 18,000+ active users.</div></div>
           </div>
           <div class="jtags"><span class="tag">0-1 Product</span><span class="tag">Mobile App</span><span class="tag">Revenue Growth</span><span class="tag">Product-Led Growth</span><span class="tag">Automation</span><span class="tag">B2B &amp; B2C</span><span class="tag">Infinity Platform</span><span class="tag">WFA</span></div>
-          <div class="collapse-wrap">
-            <button class="collapse-btn" id="cb0" title="Collapse">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M17 15l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+          <div class="collapse-wrap"><button class="collapse-btn" id="cb0"><svg viewBox="0 0 24 24" fill="none"><path d="M17 15l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
         </div>
       </div>
     </div>
@@ -591,7 +547,7 @@ footer p{font-size:13px;font-weight:300}
           <button class="jcard-more" data-card="1">Know More</button>
         </div>
         <div class="mob mob-r">
-          <div class="mob-screen mob-screen-r">
+          <div class="mob-screen">
             <div class="mob-scroll">
               <div class="mob-item"><div class="mob-title">⚠️ The Problem</div><div class="mob-text">Uneven utilization &amp; deposit friction blocking short-term users</div><div class="mob-metric"><div><div class="mob-mv">Idle</div><div class="mob-ml">Off-peak Seats</div></div><div><div class="mob-mv">High</div><div class="mob-ml">Drop-off Rate</div></div></div></div>
               <div class="mob-item"><div class="mob-title">🪑 Hot Desk Launch</div><div class="mob-text">Deposit-free, instant app activation, QR access — zero friction entry</div><div class="mob-metric"><div><div class="mob-mv">18–22%</div><div class="mob-ml">Utilization ↑</div></div><div><div class="mob-mv">1.4×</div><div class="mob-ml">Revenue/Seat</div></div></div></div>
@@ -622,45 +578,40 @@ footer p{font-size:13px;font-weight:300}
             <div class="panel" data-card="1" data-panel="4"><div class="panel-text"><strong>Platform thinking — selling flexible access infrastructure, not just seats</strong>Hot Desk transformed idle space into flexible yield-generating inventory. All Access transformed a collection of centers into a cohesive network. Together they increased utilization, improved revenue per seat, expanded total addressable market, and strengthened network advantage through a compounding network effect.</div></div>
           </div>
           <div class="jtags"><span class="tag">Hot Desk</span><span class="tag">All Access</span><span class="tag">Network Effects</span><span class="tag">Utilization</span><span class="tag">Retention</span><span class="tag">Behavioural Design</span><span class="tag">Monetization</span><span class="tag">Platform Thinking</span></div>
-          <div class="collapse-wrap">
-            <button class="collapse-btn" id="cb1" title="Collapse">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M17 15l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+          <div class="collapse-wrap"><button class="collapse-btn" id="cb1"><svg viewBox="0 0 24 24" fill="none"><path d="M17 15l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20l-5-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
 <!-- CASE STUDY -->
 <div class="cs-outer">
   <div style="max-width:1200px;margin:0 auto">
-    <div class="sec-head">
-      <h2 class="sec-title">Case Study</h2>
-      <p class="sec-sub">In-depth look at civic product design</p>
-    </div>
+    <div class="sec-head"><h2 class="sec-title">Case Study</h2><p class="sec-sub">In-depth look at civic product design</p></div>
   </div>
   <div class="cs-wrap">
     <div class="cs-layout">
       <div>
-        <div class="cs-icon">🏛️</div>
         <h3 class="cs-title">CivicTrust: Digital Civic Infrastructure</h3>
         <p class="cs-subtitle">Building the UPI layer for philanthropy and volunteering in India</p>
-        <div class="cs-tags"><span class="tag">GovTech</span><span class="tag">CivicTech</span><span class="tag">FinTech Infrastructure</span><span class="tag">Three-Sided Platform</span></div>
-        <div class="cs-divider">
-          <div class="cs-divider-line"></div>
-          <div class="cs-divider-text"><span>Explore Sections</span><span class="cs-chevron">▼▼</span></div>
-          <div class="cs-divider-line"></div>
+        <a href="https://claude.ai/artifacts/f4e89610-360f-42c2-a296-d28bb156c7e7" target="_blank" class="cs-proto-btn">View Prototype <span class="cs-proto-arrow">↗</span></a>
+        <div class="cs-tags-wrap"><span class="tag">GovTech</span><span class="tag">CivicTech</span><span class="tag">FinTech Infrastructure</span><span class="tag">Three-Sided Platform</span></div>
+        <div class="cs-explore" id="cs-explore">
+          <span class="cs-explore-label">Explore Sections</span>
+          <span class="cs-explore-arrow" id="cs-arrow">▼</span>
         </div>
-        <div class="cs-tabs">
-          <div class="cs-tab active" data-tab="0"><div class="cs-tab-icon">🚨</div><div class="cs-tab-label">Problem</div></div>
-          <div class="cs-tab" data-tab="1"><div class="cs-tab-icon">💡</div><div class="cs-tab-label">Solution</div></div>
-          <div class="cs-tab" data-tab="2"><div class="cs-tab-icon">🎯</div><div class="cs-tab-label">Approach</div></div>
-          <div class="cs-tab" data-tab="3"><div class="cs-tab-icon">📈</div><div class="cs-tab-label">Impact</div></div>
-          <div class="cs-tab" data-tab="4"><div class="cs-tab-icon">🔎</div><div class="cs-tab-label">Gaps</div></div>
-          <div class="cs-tab" data-tab="5"><div class="cs-tab-icon">🛠</div><div class="cs-tab-label">Improve</div></div>
-          <div class="cs-tab" data-tab="6"><div class="cs-tab-icon">✨</div><div class="cs-tab-label">Takeaway</div></div>
+        <div class="cs-tabs-wrap" id="cs-tabs-wrap">
+          <div class="cs-tabs">
+            <div class="cs-tab active" data-tab="0"><div class="cs-tab-icon">🚨</div><div class="cs-tab-label">Problem</div></div>
+            <div class="cs-tab" data-tab="1"><div class="cs-tab-icon">💡</div><div class="cs-tab-label">Solution</div></div>
+            <div class="cs-tab" data-tab="2"><div class="cs-tab-icon">🎯</div><div class="cs-tab-label">Approach</div></div>
+            <div class="cs-tab" data-tab="3"><div class="cs-tab-icon">📈</div><div class="cs-tab-label">Impact</div></div>
+            <div class="cs-tab" data-tab="4"><div class="cs-tab-icon">🔎</div><div class="cs-tab-label">Gaps</div></div>
+            <div class="cs-tab" data-tab="5"><div class="cs-tab-icon">🛠</div><div class="cs-tab-label">Improve</div></div>
+            <div class="cs-tab" data-tab="6"><div class="cs-tab-icon">✨</div><div class="cs-tab-label">Takeaway</div></div>
+          </div>
         </div>
       </div>
       <div class="cs-right">
@@ -676,22 +627,17 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </div>
 
-<!-- SKILLS + COMPANIES + EDU -->
+<!-- SKILLS & CE -->
 <section class="sec">
-  <div class="sec-head" style="margin-top:0">
-    <h2 class="sec-title">Skills &amp; Expertise</h2>
-    <p class="sec-sub">Core competencies I bring to product development</p>
-  </div>
+  <div class="sec-head" style="margin-top:0"><h2 class="sec-title">Skills &amp; Expertise</h2><p class="sec-sub">Core competencies I bring to product development</p></div>
   <div class="skill-wrap">
     <div class="skill-item"><div class="skill-head"><span class="skill-name">Product &amp; Strategy</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>Roadmaps &amp; PRDs</li><li>User Stories</li><li>Prioritization Frameworks</li><li>OKRs &amp; Metrics</li><li>Monetization</li></ul></div></div>
     <div class="skill-item"><div class="skill-head"><span class="skill-name">Execution &amp; Agile</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>Agile &amp; Scrum</li><li>Sprint Planning</li><li>Stakeholder Management</li><li>Cross-functional Collaboration</li><li>Release Management</li></ul></div></div>
     <div class="skill-item"><div class="skill-head"><span class="skill-name">UX &amp; Design</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>UX Optimization</li><li>UI/UX Design</li><li>Wireframing &amp; Prototyping</li><li>User Research</li><li>Figma</li></ul></div></div>
     <div class="skill-item"><div class="skill-head"><span class="skill-name">Analytics &amp; Data</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>A/B Testing</li><li>Funnel Analysis</li><li>Cohort Analysis</li><li>Conversion Optimization</li><li>Retention &amp; LTV</li><li>SQL</li></ul></div></div>
-    <div class="skill-item"><div class="skill-head"><span class="skill-name">Tools &amp; Platforms</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>Jira &amp; Confluence</li><li>HubSpot</li><li>Figma</li><li>SQL</li><li>Mobile &amp; Web Products</li><li>Internal Tools</li></ul></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Tools &amp; Platforms</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>Jira &amp; Confluence</li><li>HubSpot</li><li>Figma</li><li>SQL</li><li>Balsamiq</li><li>FigJam</li><li>Claude AI</li><li>Whimsical</li><li>Excel Advanced</li><li>Atlassian</li></ul></div></div>
   </div>
-  <div class="sec-head" style="margin-top:80px">
-    <h2 class="sec-title">Just FYI....</h2>
-  </div>
+  <div class="sec-head" style="margin-top:80px"><h2 class="sec-title">Just FYI....</h2></div>
   <div class="ce-grid">
     <div class="ce-col">
       <h3 class="ce-heading">Companies I've Worked With</h3>
@@ -709,10 +655,7 @@ footer p{font-size:13px;font-weight:300}
 <!-- TESTIMONIALS -->
 <div class="testi-outer">
   <div style="max-width:1200px;margin:0 auto">
-    <div class="sec-head">
-      <h2 class="sec-title">Testimonials</h2>
-      <p class="sec-sub">What colleagues and leaders say about working with me</p>
-    </div>
+    <div class="sec-head"><h2 class="sec-title">Testimonials</h2><p class="sec-sub">What colleagues and leaders say about working with me</p></div>
   </div>
   <div class="testi-grid">
     <div class="testi-card"><p class="testi-quote">"Sridevi approached operations like a true Product Manager — identifying inefficiencies, building scalable systems, and using data to drive decisions. Her ownership significantly improved product operations and business outcomes."</p><div class="testi-author"><div class="testi-av">RO</div><div><div class="testi-name">Rohit</div><div class="testi-role">CTO, BHIVE Group</div></div></div></div>
@@ -723,10 +666,7 @@ footer p{font-size:13px;font-weight:300}
 
 <!-- CONTACT -->
 <section class="sec" id="contact">
-  <div class="sec-head">
-    <h2 class="sec-title">Let's Connect</h2>
-    <p class="sec-sub">I'm always open to discussing product management opportunities, collaborations, or just chatting about building great products</p>
-  </div>
+  <div class="sec-head"><h2 class="sec-title">Let's Connect</h2><p class="sec-sub">I'm always open to discussing product management opportunities, collaborations, or just chatting about building great products</p></div>
   <div class="contact-content">
     <div class="contact-btns">
       <a href="mailto:sridevibhat666@gmail.com" class="btn btn-primary" id="emailBtn">Email Me</a>
@@ -735,151 +675,48 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </section>
 
-<footer>
-  <p>&copy; 2026 Sridevi. Designed &amp; Built with ❤️</p>
-</footer>
+<footer><p>&copy; 2026 Sridevi. Designed &amp; Built with ❤️</p></footer>
 
 <script>
 (function(){
-  // Nav scroll
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 50); }, {passive:true});
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
 
-  // Hamburger
-  var ham = document.getElementById('hamburger');
-  var menu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', function(){
-    ham.classList.toggle('open');
-    menu.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-  });
-  document.querySelectorAll('.mmlink').forEach(function(a){
-    a.addEventListener('click', function(){
-      ham.classList.remove('open');
-      menu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+  var ham=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
+  ham.addEventListener('click',function(){ham.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
+  document.querySelectorAll('.mmlink').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
 
-  // Metrics arrow
-  var ms = document.getElementById('mscroll');
-  var ma = document.getElementById('marrow');
-  if(ms && ma){
-    ma.addEventListener('click', function(){ ms.scrollBy({left:220, behavior:'smooth'}); });
-    ms.addEventListener('scroll', function(){
-      ma.classList.toggle('hide', ms.scrollLeft >= ms.scrollWidth - ms.clientWidth - 10);
-    }, {passive:true});
+  var ms=document.getElementById('mscroll'),ma=document.getElementById('marrow');
+  if(ms&&ma){ma.addEventListener('click',function(){ms.scrollBy({left:220,behavior:'smooth'});});ms.addEventListener('scroll',function(){ma.classList.toggle('hide',ms.scrollLeft>=ms.scrollWidth-ms.clientWidth-10);},{passive:true});}
+
+  var csExplore=document.getElementById('cs-explore'),csTabsWrap=document.getElementById('cs-tabs-wrap'),csArrow=document.getElementById('cs-arrow');
+  if(csExplore){csExplore.addEventListener('click',function(){csTabsWrap.classList.toggle('open');csArrow.style.transform=csTabsWrap.classList.contains('open')?'rotate(180deg)':'rotate(0deg)';});}
+
+  document.querySelectorAll('.cs-tab').forEach(function(tab){tab.addEventListener('click',function(){var idx=this.getAttribute('data-tab');document.querySelectorAll('.cs-tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.cs-panel').forEach(function(p){p.classList.remove('active');});this.classList.add('active');var panel=document.querySelector('.cs-panel[data-panel="'+idx+'"]');if(panel)panel.classList.add('active');});});
+
+  document.querySelectorAll('.skill-head').forEach(function(h){h.addEventListener('click',function(){var body=this.parentElement.querySelector('.skill-body'),icon=this.parentElement.querySelector('.skill-icon');body.classList.toggle('open');icon.classList.toggle('open');});});
+
+  function activateStep(card,step){
+    document.querySelectorAll('.step[data-card="'+card+'"]').forEach(function(s){s.classList.remove('active');});
+    document.querySelectorAll('.panel[data-card="'+card+'"]').forEach(function(p){p.classList.remove('active');});
+    var as=document.querySelector('.step[data-card="'+card+'"][data-step="'+step+'"]');
+    var ap=document.querySelector('.panel[data-card="'+card+'"][data-panel="'+step+'"]');
+    if(as)as.classList.add('active');
+    if(ap)ap.classList.add('active');
   }
+  document.getElementById('cb0').addEventListener('click',function(){document.getElementById('body0').classList.remove('open');});
+  document.getElementById('cb1').addEventListener('click',function(){document.getElementById('body1').classList.remove('open');});
+  document.querySelectorAll('.jcard-more').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();document.querySelectorAll('.jcard-body').forEach(function(b){b.classList.remove('open');});var idx=this.getAttribute('data-card'),body=document.getElementById('body'+idx);if(body){body.classList.add('open');activateStep(idx,0);}});});
+  document.querySelectorAll('.step').forEach(function(s){s.addEventListener('click',function(e){e.stopPropagation();activateStep(this.getAttribute('data-card'),this.getAttribute('data-step'));});});
 
-  // CS tabs
-  document.querySelectorAll('.cs-tab').forEach(function(tab){
-    tab.addEventListener('click', function(){
-      var idx = this.getAttribute('data-tab');
-      document.querySelectorAll('.cs-tab').forEach(function(t){ t.classList.remove('active'); });
-      document.querySelectorAll('.cs-panel').forEach(function(p){ p.classList.remove('active'); });
-      this.classList.add('active');
-      var panel = document.querySelector('.cs-panel[data-panel="'+idx+'"]');
-      if(panel) panel.classList.add('active');
-    });
-  });
+  var EMAIL='sridevibhat666@gmail.com';
+  function showToast(){var t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#006064;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:opacity .3s';document.body.appendChild(t);}t.textContent='✓ Email copied — '+EMAIL;t.style.opacity='1';clearTimeout(t._hide);t._hide=setTimeout(function(){t.style.opacity='0';},3000);}
+  function handleEmail(e){e.preventDefault();window.location.href='mailto:'+EMAIL;setTimeout(function(){if(navigator.clipboard){navigator.clipboard.writeText(EMAIL).then(showToast).catch(function(){});}},600);}
+  var hBtn=document.getElementById('heroEmail'),eBtn=document.getElementById('emailBtn');
+  if(hBtn)hBtn.addEventListener('click',handleEmail);
+  if(eBtn)eBtn.addEventListener('click',handleEmail);
 
-  // Skills accordion
-  document.querySelectorAll('.skill-head').forEach(function(h){
-    h.addEventListener('click', function(){
-      var item = this.parentElement;
-      var body = item.querySelector('.skill-body');
-      var icon = item.querySelector('.skill-icon');
-      body.classList.toggle('open');
-      icon.classList.toggle('open');
-    });
-  });
-
-  // Stepper + card open/close
-  function activateStep(card, step){
-    document.querySelectorAll('.step[data-card="'+card+'"]').forEach(function(s){ s.classList.remove('active'); });
-    document.querySelectorAll('.panel[data-card="'+card+'"]').forEach(function(p){ p.classList.remove('active'); });
-    var as = document.querySelector('.step[data-card="'+card+'"][data-step="'+step+'"]');
-    var ap = document.querySelector('.panel[data-card="'+card+'"][data-panel="'+step+'"]');
-    if(as) as.classList.add('active');
-    if(ap) ap.classList.add('active');
-  }
-
-  window.closeCard = function(idx){
-    var body = document.getElementById('body'+idx);
-    if(body) body.classList.remove('open');
-  };
-
-  document.getElementById('cb0').addEventListener('click', function(){ closeCard(0); });
-  document.getElementById('cb1').addEventListener('click', function(){ closeCard(1); });
-
-  document.querySelectorAll('.jcard-more').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      document.querySelectorAll('.jcard-body').forEach(function(b){ b.classList.remove('open'); });
-      var idx = this.getAttribute('data-card');
-      var body = document.getElementById('body'+idx);
-      if(body){ body.classList.add('open'); activateStep(idx, 0); }
-    });
-  });
-
-  document.querySelectorAll('.step').forEach(function(step){
-    step.addEventListener('click', function(e){
-      e.stopPropagation();
-      activateStep(this.getAttribute('data-card'), this.getAttribute('data-step'));
-    });
-  });
-
-  // Email copy fallback
-  var EMAIL = 'sridevibhat666@gmail.com';
-  function handleEmail(e) {
-    e.preventDefault();
-    // Try mailto first
-    var win = window.open('mailto:' + EMAIL, '_self');
-    // If mailto fails, copy to clipboard and show toast
-    setTimeout(function() {
-      if (!win || win.closed) {
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(EMAIL).then(function() { showToast(); });
-        } else {
-          var ta = document.createElement('textarea');
-          ta.value = EMAIL;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          showToast();
-        }
-      }
-    }, 500);
-  }
-  function showToast() {
-    var t = document.getElementById('toast');
-    if (!t) {
-      t = document.createElement('div');
-      t.id = 'toast';
-      t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#006064;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:opacity .3s';
-      document.body.appendChild(t);
-    }
-    t.textContent = '✓ Email copied — ' + EMAIL;
-    t.style.opacity = '1';
-    clearTimeout(t._hide);
-    t._hide = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
-  }
-  var hBtn = document.getElementById('heroEmail');
-  var eBtn = document.getElementById('emailBtn');
-  if (hBtn) hBtn.addEventListener('click', handleEmail);
-  if (eBtn) eBtn.addEventListener('click', handleEmail);
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      var h = this.getAttribute('href');
-      if(!h || h==='#' || h.length<=1) return;
-      e.preventDefault();
-      var t = document.querySelector(h);
-      if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(!h||h==='#'||h.length<=1)return;e.preventDefault();if(h==='#work'){var w=document.getElementById('work');if(w){w.style.display='block';setTimeout(function(){w.scrollIntoView({behavior:'smooth',block:'start'});},50);}}else{var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 })();
 </script>
 </body>
