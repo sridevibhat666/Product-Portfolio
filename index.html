@@ -28,6 +28,10 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--c);transition:width .3s}
 .nav-links a:hover{color:var(--c)}
 .nav-links a:hover::after{width:100%}
+.nav-links a.nav-active{color:var(--c)}
+.nav-links a.nav-active::after{width:100%}
+.nav-links a.nav-dot{color:var(--t2)}
+.nav-links a.nav-dot::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:var(--c);border-radius:50%}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .hamburger span{display:block;width:24px;height:2px;background:var(--t);border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -331,7 +335,7 @@ footer p{font-size:13px;font-weight:300}
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work" class="nav-dot">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -348,7 +352,7 @@ footer p{font-size:13px;font-weight:300}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <h1>Hi, I'm <span class="hl">Sridevi</span>,<br>a Product Manager</h1>
+    <h1>Hi there, I'm <span class="hl">Sridevi</span>,<br>a Product Manager<br><span style="font-size:clamp(24px,4vw,40px);font-weight:300;opacity:.75">Well, a Human first.</span></h1>
     <p class="hero-sub">I spend my time with unclear problems, shaping them into products that quietly help, also binge way too much Netflix.</p>
     <button class="hero-cta" id="heroEmail">Get in Touch <span class="cta-arrow">↗</span></button>
   </div>
@@ -596,7 +600,7 @@ footer p{font-size:13px;font-weight:300}
       <div>
         <h3 class="cs-title">CivicTrust: Digital Civic Infrastructure</h3>
         <p class="cs-subtitle">Building the UPI layer for philanthropy and volunteering in India</p>
-        <a href="https://claude.ai/artifacts/f4e89610-360f-42c2-a296-d28bb156c7e7" target="_blank" class="cs-proto-btn">View Prototype <span class="cs-proto-arrow">↗</span></a>
+        <button onclick="document.getElementById('protoOverlay').style.display='flex'" class="cs-proto-btn" style="cursor:pointer;background:none;border:none;padding:0">View Prototype <span class="cs-proto-arrow">↗</span></button>
         <div class="cs-tags-wrap"><span class="tag">GovTech</span><span class="tag">CivicTech</span><span class="tag">FinTech Infrastructure</span><span class="tag">Three-Sided Platform</span></div>
         <div class="cs-explore" id="cs-explore">
           <span class="cs-explore-label">Explore Sections</span>
@@ -677,14 +681,45 @@ footer p{font-size:13px;font-weight:300}
 
 <footer><p>&copy; 2026 Sridevi. Designed &amp; Built with ❤️</p></footer>
 
+<!-- PROTOTYPE OVERLAY -->
+<div id="protoOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)">
+  <div style="background:#fff;border-radius:16px;overflow:hidden;width:100%;max-width:420px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.4)">
+    <!-- Modal Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #E2E8F0;background:#fafafa;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,#00BCD4,#006064);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🛡️</div>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:#333">CivicTrust</div>
+          <div style="font-size:11px;color:#999">Interactive Prototype</div>
+        </div>
+      </div>
+      <button onclick="document.getElementById('protoOverlay').style.display='none'" style="width:32px;height:32px;border-radius:50%;border:1px solid #E2E8F0;background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:#666;transition:all .2s" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'">×</button>
+    </div>
+    <!-- App Content -->
+    <div style="flex:1;overflow-y:auto;background:#f3f4f6" id="protoApp"></div>
+  </div>
+</div>
+
 <script>
 (function(){
   var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>50);
+    var sections=['home','about','work','contact'];
+    var active='home';
+    sections.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el&&el.style.display!=='none'&&window.scrollY>=el.offsetTop-120)active=id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      var href=a.getAttribute('href').replace('#','');
+      a.classList.toggle('nav-active',href===active);
+    });
+  },{passive:true});
 
   var ham=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
   ham.addEventListener('click',function(){ham.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
-  document.querySelectorAll('.mmlink').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
+  document.querySelectorAll('.mmlink').forEach(function(a){a.addEventListener('click',function(){setActiveNav(this.getAttribute('href'));ham.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
 
   var ms=document.getElementById('mscroll'),ma=document.getElementById('marrow');
   if(ms&&ma){ma.addEventListener('click',function(){ms.scrollBy({left:220,behavior:'smooth'});});ms.addEventListener('scroll',function(){ma.classList.toggle('hide',ms.scrollLeft>=ms.scrollWidth-ms.clientWidth-10);},{passive:true});}
@@ -716,7 +751,210 @@ footer p{font-size:13px;font-weight:300}
   if(hBtn)hBtn.addEventListener('click',handleEmail);
   if(eBtn)eBtn.addEventListener('click',handleEmail);
 
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(!h||h==='#'||h.length<=1)return;e.preventDefault();if(h==='#work'){var w=document.getElementById('work');if(w){w.style.display='block';setTimeout(function(){w.scrollIntoView({behavior:'smooth',block:'start'});},50);}}else{var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+  // Close overlay on backdrop click
+  document.getElementById('protoOverlay').addEventListener('click',function(e){if(e.target===this)this.style.display='none';});
+
+  // CivicTrust Prototype
+  (function(){
+    var campaigns=[
+      {id:1,title:"Emergency Heart Surgery for 8-year-old Priya",cat:"medical",loc:"Mumbai, MH",raised:1850000,goal:2000000,donors:342,urgency:"critical",trans:95,days:3,img:"🏥",ben:"Priya Sharma",hosp:"Lilavati Hospital",desc:"Priya needs immediate heart surgery. Her family has exhausted all savings and requires urgent financial support.",docs:["Medical reports","Hospital estimate","ID proof","Income certificate"]},
+      {id:2,title:"Rebuild Homes After Cyclone",cat:"disaster",loc:"Nagapattinam, TN",raised:3200000,goal:5000000,donors:876,urgency:"high",trans:92,days:12,img:"🏠",ben:"45 Families",org:"Relief India Foundation",desc:"45 families lost their homes in recent cyclone. Funds for reconstruction and immediate relief materials.",docs:["Damage assessment","Beneficiary list","NGO registration","District approval"]},
+      {id:3,title:"Education for Tribal Children",cat:"education",loc:"Ranchi, JH",raised:890000,goal:1000000,donors:234,urgency:"medium",trans:98,days:18,img:"📚",ben:"120 Students",org:"Eklavya Education Trust",desc:"Providing books, uniforms, and school supplies for 120 tribal children to continue their education.",docs:["Student list","Trust registration","School letter","Budget breakdown"]},
+      {id:4,title:"Cancer Treatment for Single Mother",cat:"medical",loc:"Bangalore, KA",raised:780000,goal:1500000,donors:189,urgency:"critical",trans:94,days:5,img:"💊",ben:"Lakshmi Reddy",hosp:"Kidwai Memorial Institute",desc:"Lakshmi is undergoing cancer treatment and needs support for chemotherapy and medication costs.",docs:["Medical records","Treatment plan","Hospital invoice","Income proof"]}
+    ];
+    var state={tab:'home',filter:'all',search:'',modal:null,selId:null,donAmt:''};
+    var urgColor={critical:'#EF4444',high:'#F97316',medium:'#3B82F6'};
+    function pct(r,g){return Math.min((r/g)*100,100).toFixed(0);}
+    function lakh(n){return (n/100000).toFixed(1)+'L';}
+    function render(){
+      var app=document.getElementById('protoApp');
+      if(!app)return;
+      var filtered=campaigns.filter(function(c){
+        var ms=c.title.toLowerCase().includes(state.search.toLowerCase())||c.loc.toLowerCase().includes(state.search.toLowerCase());
+        if(state.filter==='all')return ms;
+        if(state.filter==='critical')return ms&&c.urgency==='critical';
+        if(state.filter==='near-goal')return ms&&parseFloat(pct(c.raised,c.goal))>=85;
+        return ms&&c.cat===state.filter;
+      });
+      var html='<div style="display:flex;flex-direction:column;height:100%;min-height:500px">';
+      // Top Bar
+      html+='<div style="background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">';
+      html+='<div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px">🛡️</div><span style="font-weight:700;color:#111;font-size:15px">CivicTrust</span></div>';
+      html+='<div style="display:flex;gap:6px"><button onclick="proto_notify()" style="position:relative;background:none;border:none;padding:6px;cursor:pointer;font-size:18px">🔔<span style="position:absolute;top:2px;right:2px;width:8px;height:8px;background:#EF4444;border-radius:50%;display:block"></span></button></div>';
+      html+='</div>';
+      // Tab Content
+      if(state.tab==='home'){
+        html+='<div style="flex:1;overflow-y:auto;padding-bottom:60px">';
+        // Hero
+        html+='<div style="margin:12px;background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:16px;padding:20px;color:#fff">';
+        html+='<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12px;font-weight:500">🛡️ Government Verified</div>';
+        html+='<div style="font-size:20px;font-weight:800;margin-bottom:4px">Trust-First Giving</div>';
+        html+='<div style="font-size:12px;opacity:.8;margin-bottom:12px">Every campaign verified. Every rupee tracked.</div>';
+        html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">₹248Cr</div><div style="font-size:10px;opacity:.8">Raised</div></div>';
+        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">1.2M+</div><div style="font-size:10px;opacity:.8">Donors</div></div>';
+        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">100%</div><div style="font-size:10px;opacity:.8">Verified</div></div>';
+        html+='</div></div>';
+        // Search
+        html+='<div style="padding:0 12px;margin-bottom:10px"><input oninput="proto_search(this.value)" value="'+state.search+'" placeholder="Search campaigns..." style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:12px;font-size:13px;box-sizing:border-box;outline:none" /></div>';
+        // Filters
+        var filters=[['all','All'],['critical','🚨 Critical'],['near-goal','📈 Near Goal'],['medical','Medical'],['education','Education'],['disaster','Disaster']];
+        html+='<div style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 10px;scrollbar-width:none">';
+        filters.forEach(function(f){
+          var active=state.filter===f[0];
+          html+='<button onclick="proto_filter(\''+f[0]+'\')" style="flex-shrink:0;padding:7px 14px;border-radius:20px;border:none;font-size:12px;font-weight:600;cursor:pointer;background:'+(active?'#2563EB':'#f3f4f6')+';color:'+(active?'#fff':'#374151')+'">'+ f[1]+'</button>';
+        });
+        html+='</div>';
+        // Campaign Cards
+        filtered.forEach(function(c){
+          var p=pct(c.raised,c.goal);
+          html+='<div style="margin:0 12px 12px;background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">';
+          html+='<div style="height:3px;background:'+urgColor[c.urgency]+'"></div>';
+          html+='<div style="padding:14px">';
+          html+='<div style="display:flex;gap:10px;margin-bottom:10px"><div style="font-size:28px">'+c.img+'</div><div style="flex:1"><div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:2px">✅ VERIFIED</div><div style="font-size:13px;font-weight:700;color:#111;line-height:1.4;margin-bottom:4px">'+c.title+'</div><div style="font-size:11px;color:#6b7280">📍 '+c.loc+' • ⏱ '+c.days+'d left</div></div></div>';
+          html+='<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:15px;font-weight:800;color:#111">₹'+lakh(c.raised)+'</span><span style="font-size:11px;color:#6b7280">of ₹'+lakh(c.goal)+'</span></div>';
+          html+='<div style="background:#e5e7eb;border-radius:4px;height:6px;overflow:hidden"><div style="height:6px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+p+'%"></div></div>';
+          html+='<div style="display:flex;justify-content:space-between;margin-top:6px"><span style="font-size:11px;color:#6b7280">👥 '+c.donors+' donors</span><span style="font-size:11px;font-weight:700;color:#16A34A">'+p+'%</span></div></div>';
+          html+='<div style="background:#EFF6FF;border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:11px;color:#374151;font-weight:500">Transparency</span><div style="display:flex;align-items:center;gap:6px"><div style="width:60px;background:#e5e7eb;border-radius:4px;height:5px"><div style="height:5px;background:#2563EB;border-radius:4px;width:'+c.trans+'%"></div></div><span style="font-size:11px;font-weight:700;color:#2563EB">'+c.trans+'%</span></div></div>';
+          html+='<div style="display:flex;gap:8px">';
+          html+='<button onclick="proto_donate('+c.id+')" style="flex:1;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:10px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer">Donate Now</button>';
+          html+='<button onclick="proto_details('+c.id+')" style="padding:10px 14px;border:2px solid #e5e7eb;border-radius:10px;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#374151">Details</button>';
+          html+='</div></div></div>';
+        });
+        if(filtered.length===0)html+='<div style="text-align:center;padding:40px;color:#9ca3af;font-size:14px">No campaigns found</div>';
+        html+='</div>'; // end scroll
+      } else if(state.tab==='explore'){
+        html+='<div style="flex:1;overflow-y:auto;padding:16px;padding-bottom:60px">';
+        html+='<div style="font-size:18px;font-weight:800;color:#111;margin-bottom:16px">Explore</div>';
+        var cats=[['🚨','Critical','#EF4444','2 urgent cases'],['❤️','Medical','#3B82F6','2 campaigns'],['📚','Education','#8B5CF6','1 campaign'],['🏠','Disaster','#F97316','1 campaign']];
+        html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
+        cats.forEach(function(c){html+='<div style="background:'+c[2]+';border-radius:16px;padding:20px;color:#fff"><div style="font-size:28px;margin-bottom:8px">'+c[0]+'</div><div style="font-size:15px;font-weight:700;margin-bottom:4px">'+c[1]+'</div><div style="font-size:11px;opacity:.8">'+c[3]+'</div></div>';});
+        html+='</div>';
+        html+='<div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:16px">';
+        html+='<div style="font-size:15px;font-weight:700;color:#111;margin-bottom:14px">How It Works</div>';
+        var steps=[['#DBEAFE','#2563EB','Submit Campaign','Upload documents and details'],['#DCFCE7','#16A34A','Verification','Government-backed process'],['#EDE9FE','#8B5CF6','Go Live','Campaign appears on platform'],['#FEF3C7','#D97706','Funds Transfer','Direct to beneficiaries']];
+        steps.forEach(function(s,i){html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div style="width:32px;height:32px;background:'+s[0]+';border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:'+s[1]+';flex-shrink:0">'+(i+1)+'</div><div><div style="font-size:13px;font-weight:600;color:#111">'+s[2]+'</div><div style="font-size:11px;color:#6b7280">'+s[3]+'</div></div></div>';});
+        html+='</div>';
+        html+='<div style="background:linear-gradient(135deg,#16A34A,#15803D);border-radius:16px;padding:24px;color:#fff"><div style="font-size:28px;margin-bottom:8px">👥</div><div style="font-size:18px;font-weight:800;margin-bottom:8px">Become a Volunteer</div><div style="font-size:12px;opacity:.8;margin-bottom:14px">Use your skills to make a real difference across India.</div><button style="background:#fff;color:#16A34A;border:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer">Join Now</button></div>';
+        html+='</div>';
+      } else if(state.tab==='profile'){
+        html+='<div style="flex:1;overflow-y:auto;padding:16px;padding-bottom:60px">';
+        html+='<div style="background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px">';
+        html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="width:52px;height:52px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">👤</div><div><div style="font-size:17px;font-weight:700">Guest User</div><div style="font-size:12px;opacity:.8">Sign in to save preferences</div></div></div>';
+        html+='<button onclick="proto_modal(\'signin\')" style="width:100%;background:#fff;color:#2563EB;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">Sign In / Sign Up</button></div>';
+        var items=[['❤️','My Donations'],['🏆','My Impact'],['👥','Volunteer History'],['📝','Start Campaign']];
+        html+='<div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;margin-bottom:16px">';
+        items.forEach(function(item,i){html+='<button onclick="'+(item[1]==='Start Campaign'?'proto_modal(\'campaign\')':'')+('"')+' style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:none;background:#fff;border-bottom:'+(i<items.length-1?'1px solid #f3f4f6':'none')+';cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><span>'+item[0]+'</span><span style="font-size:14px;font-weight:500;color:#111">'+item[1]+'</span></div><span style="color:#9ca3af">›</span></button>';});
+        html+='</div>';
+        html+='</div>';
+      }
+      // Bottom Nav
+      html+='<div style="position:sticky;bottom:0;background:#fff;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:8px 0;flex-shrink:0">';
+      var tabs=[['home','🏠','Home'],['explore','🧭','Explore'],['profile','👤','Profile']];
+      tabs.forEach(function(t){
+        var a=state.tab===t[0];
+        html+='<button onclick="proto_tab(\''+t[0]+'\')" style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 20px;border:none;background:'+(a?'#EFF6FF':'#fff')+';border-radius:10px;cursor:pointer"><span style="font-size:20px">'+t[1]+'</span><span style="font-size:10px;font-weight:600;color:'+(a?'#2563EB':'#6b7280')+'">'+t[2]+'</span></button>';
+      });
+      html+='</div>';
+      // Modals
+      if(state.modal==='donate'&&state.selId){
+        var c=campaigns.find(function(x){return x.id===state.selId;});
+        html+='<div style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;display:flex;flex-direction:column;justify-content:flex-end">';
+        html+='<div style="background:#fff;border-radius:20px 20px 0 0;padding:20px;max-height:90%;overflow-y:auto">';
+        html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:16px;font-weight:800">Donate</span><button onclick="proto_closemodal()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">×</button></div>';
+        html+='<div style="background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#111;margin-bottom:4px">'+c.ben+'</div><div style="font-size:12px;color:#6b7280">'+c.loc+' • '+lakh(c.raised)+' raised</div></div>';
+        html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">';
+        ['500','1000','2500'].forEach(function(a){html+='<button onclick="proto_setamt(\''+a+'\')" style="padding:14px;border-radius:10px;border:2px solid '+(state.donAmt===a?'#2563EB':'#e5e7eb')+';background:'+(state.donAmt===a?'#EFF6FF':'#fff')+';font-weight:700;font-size:14px;cursor:pointer;color:'+(state.donAmt===a?'#2563EB':'#374151')+'">₹'+a+'</button>';});
+        html+='</div>';
+        html+='<input oninput="proto_setamt(this.value)" value="'+state.donAmt+'" placeholder="Custom amount" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:10px;box-sizing:border-box;outline:none" />';
+        html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px;margin-bottom:14px;font-size:12px;color:#15803D">✅ 100% Verified & Secure — Funds go directly to verified beneficiaries</div>';
+        html+='<button onclick="proto_process()" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">Donate ₹'+(state.donAmt||'0')+'</button>';
+        html+='</div></div>';
+      }
+      if(state.modal==='details'&&state.selId){
+        var c=campaigns.find(function(x){return x.id===state.selId;});
+        var p=pct(c.raised,c.goal);
+        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100;overflow-y:auto">';
+        html+='<div style="background:linear-gradient(135deg,#2563EB,#16A34A);padding:40px 16px 20px;position:relative">';
+        html+='<button onclick="proto_closemodal()" style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer;color:#fff">×</button>';
+        html+='<div style="text-align:center;font-size:60px;margin-bottom:10px">'+c.img+'</div></div>';
+        html+='<div style="padding:16px">';
+        html+='<div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:6px">✅ GOVERNMENT VERIFIED</div>';
+        html+='<div style="font-size:18px;font-weight:800;color:#111;margin-bottom:6px">'+c.title+'</div>';
+        html+='<div style="font-size:12px;color:#6b7280;margin-bottom:16px">📍 '+c.loc+' • ⏱ '+c.days+' days left</div>';
+        html+='<div style="background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:22px;font-weight:800">₹'+lakh(c.raised)+'</span><span style="font-size:12px;color:#6b7280;align-self:flex-end">of ₹'+lakh(c.goal)+'</span></div><div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;margin-bottom:8px"><div style="height:8px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+p+'%"></div></div><div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#6b7280">👥 '+c.donors+' donors</span><span style="font-size:12px;font-weight:700;color:#16A34A">'+p+'% funded</span></div></div>';
+        html+='<div style="font-size:14px;font-weight:700;color:#111;margin-bottom:8px">About this Campaign</div>';
+        html+='<div style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:14px">'+c.desc+'</div>';
+        html+='<div style="background:#EFF6FF;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#111;margin-bottom:10px">Beneficiary Details</div><div style="font-size:12px;display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:#6b7280">Name:</span><span style="font-weight:600">'+c.ben+'</span></div>'+(c.hosp?'<div style="font-size:12px;display:flex;justify-content:space-between"><span style="color:#6b7280">Hospital:</span><span style="font-weight:600">'+c.hosp+'</span></div>':'')+(c.org?'<div style="font-size:12px;display:flex;justify-content:space-between"><span style="color:#6b7280">Organization:</span><span style="font-weight:600">'+c.org+'</span></div>':'')+'</div>';
+        html+='<div style="font-size:13px;font-weight:700;color:#111;margin-bottom:10px">Verified Documents</div>';
+        html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">';
+        c.docs.forEach(function(d){html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px;font-size:11px;color:#15803D;font-weight:500">✅ '+d+'</div>';});
+        html+='</div>';
+        html+='<div style="background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #93C5FD;border-radius:12px;padding:14px;margin-bottom:16px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:13px;font-weight:700;color:#111">Transparency Score</span><span style="font-size:24px;font-weight:800;color:#2563EB">'+c.trans+'%</span></div><div style="background:#e5e7eb;border-radius:4px;height:6px;overflow:hidden"><div style="height:6px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+c.trans+'%"></div></div></div>';
+        html+='<button onclick="proto_closemodal();proto_donate('+c.id+')" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">❤️ Donate Now</button>';
+        html+='</div></div>';
+      }
+      if(state.modal==='notify'){
+        var notifs=[{t:'New campaign: Emergency surgery needed',time:'5m ago',u:true},{t:'Your donation helped save a life!',time:'2h ago',u:true},{t:'Campaign you donated to reached goal',time:'1d ago',u:false}];
+        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100">';
+        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Notifications</span><div style="width:32px"></div></div>';
+        html+='<div style="padding:16px;space-y:8px">';
+        notifs.forEach(function(n){html+='<div style="background:'+(n.u?'#EFF6FF':'#fff')+';border:1px solid '+(n.u?'#BFDBFE':'#e5e7eb')+';border-radius:12px;padding:14px;margin-bottom:10px;display:flex;gap:10px"><div style="width:8px;height:8px;background:'+(n.u?'#2563EB':'#d1d5db')+';border-radius:50%;margin-top:5px;flex-shrink:0"></div><div><div style="font-size:13px;font-weight:500;color:#111">'+n.t+'</div><div style="font-size:11px;color:#9ca3af;margin-top:3px">'+n.time+'</div></div></div>';});
+        html+='</div></div>';
+      }
+      if(state.modal==='signin'){
+        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100">';
+        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Sign In</span><div style="width:32px"></div></div>';
+        html+='<div style="padding:20px">';
+        html+='<div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:14px;margin-bottom:16px;font-size:13px;color:#1e40af">Sign in to track donations, save campaigns, and get personalized recommendations.</div>';
+        html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Email or Phone</label><input placeholder="Enter email or phone" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" /></div>';
+        html+='<div style="margin-bottom:16px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Password</label><input type="password" placeholder="Enter password" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" /></div>';
+        html+='<button style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:12px">Sign In</button>';
+        html+='<button style="width:100%;background:none;border:none;font-size:14px;color:#2563EB;font-weight:600;cursor:pointer">Create New Account</button>';
+        html+='</div></div>';
+      }
+      if(state.modal==='campaign'){
+        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100;overflow-y:auto">';
+        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Start Campaign</span><div style="width:32px"></div></div>';
+        html+='<div style="padding:20px">';
+        html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:12px;padding:14px;margin-bottom:16px;font-size:13px;color:#15803D">✅ All campaigns undergo government verification before going live.</div>';
+        ['Full Name','Phone Number','Description'].forEach(function(label){html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">'+label+' *</label>'+(label==='Description'?'<textarea placeholder="Describe your situation" rows="4" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none;resize:none"></textarea>':'<input placeholder="Enter '+label.toLowerCase()+'" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" />')+'</div>';});
+        html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Category *</label><select style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none"><option>Select category</option><option>Medical Emergency</option><option>Education</option><option>Disaster Relief</option><option>Other</option></select></div>';
+        html+='<div style="border:2px dashed #d1d5db;border-radius:12px;padding:24px;text-align:center;margin-bottom:16px"><div style="font-size:28px;margin-bottom:6px">📎</div><div style="font-size:13px;color:#6b7280">Tap to upload documents</div><div style="font-size:11px;color:#9ca3af;margin-top:4px">ID, medical reports, certificates</div></div>';
+        html+='<button onclick="proto_submitcampaign()" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">Submit for Verification</button>';
+        html+='</div></div>';
+      }
+      html+='</div>'; // end outer
+      app.innerHTML=html;
+    }
+    window.proto_tab=function(t){state.tab=t;render();};
+    window.proto_filter=function(f){state.filter=f;render();};
+    window.proto_search=function(v){state.search=v;render();};
+    window.proto_donate=function(id){state.modal='donate';state.selId=id;state.donAmt='';render();};
+    window.proto_details=function(id){state.modal='details';state.selId=id;render();};
+    window.proto_notify=function(){state.modal='notify';render();};
+    window.proto_modal=function(m){state.modal=m;render();};
+    window.proto_closemodal=function(){state.modal=null;render();};
+    window.proto_setamt=function(a){state.donAmt=a;render();};
+    window.proto_process=function(){
+      if(!state.donAmt||parseInt(state.donAmt)<=0){alert('Please enter a valid amount');return;}
+      var c=campaigns.find(function(x){return x.id===state.selId;});
+      alert('Thank you! Donation of ₹'+state.donAmt+' to "'+c.title+'" is being processed.');
+      state.modal=null;state.donAmt='';render();
+    };
+    window.proto_submitcampaign=function(){
+      alert('Campaign submitted for verification! You will receive updates within 24–48 hours.');
+      state.modal=null;render();
+    };
+    render();
+  })();
+
+  function setActiveNav(href){
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.classList.toggle('nav-active',a.getAttribute('href')===href);
+    });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(!h||h==='#'||h.length<=1)return;e.preventDefault();setActiveNav(h);if(h==='#work'){var w=document.getElementById('work');if(w){w.style.display='block';setTimeout(function(){w.scrollIntoView({behavior:'smooth',block:'start'});},50);}}else{var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 })();
 </script>
 </body>
