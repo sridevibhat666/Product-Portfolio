@@ -17,7 +17,6 @@
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif;color:var(--t2);line-height:1.8;background:var(--bg);-webkit-font-smoothing:antialiased}
 
-/* NAV */
 nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--bc);z-index:1000;padding:20px 0;transition:all .3s}
 nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .nav-wrap{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
@@ -28,10 +27,6 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--c);transition:width .3s}
 .nav-links a:hover{color:var(--c)}
 .nav-links a:hover::after{width:100%}
-.nav-links a.nav-active{color:var(--c)}
-.nav-links a.nav-active::after{width:100%}
-.nav-links a.nav-dot{color:var(--t2)}
-.nav-links a.nav-dot::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:var(--c);border-radius:50%}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .hamburger span{display:block;width:24px;height:2px;background:var(--t);border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -42,7 +37,6 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .mobile-menu a{text-decoration:none;color:var(--t);font-size:24px;font-weight:400;transition:color .3s}
 .mobile-menu a:hover{color:var(--c)}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 24px 100px;background:url('https://raw.githubusercontent.com/sridevibhat666/Product-Portfolio/refs/heads/main/Gemini_Generated_Image_fejx13fejx13fejx.png') center center/cover no-repeat;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:64px;background:linear-gradient(to right,rgba(0,40,44,.85) 0%,rgba(0,60,64,.7) 55%,transparent 100%);z-index:1;pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:800px}
@@ -53,7 +47,6 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .cta-arrow{width:36px;height:36px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s}
 .hero-cta:hover .cta-arrow{background:#fff;color:#006064;border-color:#fff;transform:rotate(45deg)}
 
-/* TICKER */
 .ticker-strip{width:100%;background:rgba(255,255,255,.95);border-top:2px solid transparent;border-image:linear-gradient(to right,#006064,#00838F,#00BCD4) 1;padding:16px 0;overflow:hidden;position:absolute;bottom:0;left:0}
 .ticker-content{display:flex;animation:ticker 40s linear infinite;width:fit-content}
 .ticker-strip:hover .ticker-content{animation-play-state:paused}
@@ -61,13 +54,11 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .ticker-item::after{content:'•';margin-left:20px;background:linear-gradient(135deg,#006064,#00838F,#00BCD4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:12px;opacity:.6}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* SECTIONS */
 .sec{padding:80px 24px;max-width:1200px;margin:0 auto}
 .sec-head{text-align:center;margin-bottom:60px;padding:20px 0;position:sticky;top:60px;z-index:100;background:var(--bg)}
 .sec-title{font-size:clamp(26px,5vw,36px);font-weight:400;color:var(--t);margin-bottom:20px;letter-spacing:-.3px}
 .sec-sub{font-size:15px;color:var(--t2);max-width:600px;margin:0 auto;line-height:1.8;font-weight:300}
 
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
 .about-box{background:var(--w);padding:32px;border-radius:var(--r);border:1px solid var(--b);transition:all .3s}
 .about-box:hover{box-shadow:0 4px 20px rgba(0,188,212,.08);border-color:var(--bc)}
@@ -80,7 +71,6 @@ nav.scrolled{padding:14px 0;box-shadow:0 2px 12px rgba(0,188,212,.08)}
 .phil-box h4{font-size:17px;font-weight:500;margin-bottom:12px;color:var(--t)}
 .phil-box p{font-size:14px;color:var(--t2);line-height:1.8;font-weight:300}
 
-/* EXPERIENCE */
 .exp-timeline{margin-top:60px}
 .exp-item{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:48px 0;border-bottom:1px solid var(--bc);align-items:start}
 .exp-item:last-child{border-bottom:none}
@@ -112,7 +102,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .tag{display:inline-block;padding:6px 14px;color:var(--cm);font-size:12px;font-weight:500;border:1px solid var(--bc);letter-spacing:.3px;margin-right:8px;margin-top:8px;border-radius:var(--r);transition:all .3s;background:var(--w)}
 .tag:hover{background:var(--c);color:#fff;border-color:var(--c);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,188,212,.2)}
 
-/* METRICS */
 .metrics-outer{background:var(--cl);padding:80px 0;overflow:visible}
 .metrics-inner{max-width:1200px;margin:0 auto;padding:0 24px}
 .metrics-inner .sec-head{background:var(--cl)}
@@ -131,7 +120,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .m-val{font-size:36px;font-weight:400;color:var(--c);margin-bottom:12px;letter-spacing:-.5px}
 .m-lbl{font-size:13px;color:var(--t2);font-weight:300;line-height:1.6}
 
-/* PROJECTS */
 .proj-outer{background:var(--bg);padding:80px 24px;overflow:visible}
 .proj-outer .sec-head{max-width:1200px;margin-left:auto;margin-right:auto}
 .proj-inner{max-width:1200px;margin:40px auto 0;display:flex;flex-direction:column;gap:40px}
@@ -140,12 +128,12 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .jcard-preview{cursor:pointer;display:grid;grid-template-columns:280px 1fr;align-items:start}
 .jcard-preview.rev{grid-template-columns:1fr 280px}
 
-/* PHONE MOCKUP */
 .mob{width:280px;height:560px;background:#1a1a1a;border-radius:28px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;margin:16px 0 16px 16px;flex-shrink:0}
-.mob.mob-r{margin:16px 16px 16px 0}
+.mob.mob-r{margin:16px 16px 16px 0;border-radius:28px}
 .mob::before{content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);width:70px;height:20px;background:#1a1a1a;border-radius:0 0 14px 14px;z-index:10}
 .mob::after{content:'';position:absolute;top:24px;left:50%;transform:translateX(-50%);width:44px;height:4px;background:#333;border-radius:2px;z-index:11}
 .mob-screen{width:100%;height:100%;background:linear-gradient(135deg,#00BCD4 0%,#0097A7 50%,#006064 100%);border-radius:20px;overflow:hidden;position:relative}
+.mob-screen.mob-screen-r{border-radius:20px}
 .mob-scroll{position:absolute;top:0;left:0;right:0;animation:mobScroll 15s linear infinite;padding:40px 14px 14px}
 .mob:hover .mob-scroll{animation-play-state:paused}
 @keyframes mobScroll{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
@@ -156,7 +144,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .mob-mv{font-size:15px;font-weight:700;color:var(--c)}
 .mob-ml{font-size:9px;color:var(--t2);text-transform:uppercase}
 
-/* JCARD INFO */
 .jcard-info{padding:28px;display:flex;flex-direction:column;justify-content:center;min-height:520px}
 .jcard-chips{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .jcard-chip{padding:5px 12px;background:var(--cl);color:var(--cm);font-size:11px;font-weight:600;border:2px solid var(--c);text-transform:uppercase;letter-spacing:.5px}
@@ -168,7 +155,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .jcard-more::after{content:'→';font-size:17px;transition:transform .3s}
 .jcard-more:hover::after{transform:translateX(4px)}
 
-/* EXPAND BODY */
 .jcard-body{max-height:0;overflow:hidden;transition:max-height .5s ease;border-top:3px solid var(--cl)}
 .jcard-body.open{max-height:2400px}
 .jcard-body-inner{padding:28px 24px 40px;background:var(--bg)}
@@ -178,7 +164,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .collapse-btn:hover svg path{stroke:#fff}
 .collapse-btn svg{width:18px;height:18px;display:block}
 
-/* STEPPER */
 .stepper{display:flex;align-items:center;justify-content:space-between;position:relative;padding:32px 10px 28px;overflow-x:auto}
 .stepper::before{content:'';position:absolute;top:52px;left:60px;right:60px;height:3px;background:linear-gradient(to right,var(--cl) 0%,var(--bc) 50%,var(--cl) 100%);z-index:0;border-radius:3px}
 .step{display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;position:relative;z-index:1;min-width:70px;flex:1;transition:all .3s}
@@ -196,7 +181,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .panel-text strong{color:var(--t);display:block;margin-bottom:10px}
 .jtags{margin-top:24px;padding-top:24px;border-top:2px solid var(--cl)}
 
-/* CASE STUDY */
 .cs-outer{background:var(--cl);padding:80px 24px;overflow:visible}
 .cs-outer .sec-head{background:var(--cl)}
 .cs-wrap{background:var(--w);border:1px solid var(--bc);padding:40px 32px;max-width:1200px;margin:0 auto;transition:all .3s;border-radius:var(--r)}
@@ -207,6 +191,7 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .cs-proto-btn{display:inline-flex;align-items:center;gap:12px;margin:0 0 16px;color:var(--cdd);font-size:15px;font-weight:300;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--c)}
 .cs-proto-arrow{width:32px;height:32px;border:1px solid var(--c);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:var(--cdd);flex-shrink:0;transition:all .3s}
 .cs-proto-btn:hover .cs-proto-arrow{background:var(--cdd);color:#fff;border-color:var(--cdd);transform:rotate(45deg)}
+.cs-tags-wrap{margin-bottom:0}
 .cs-explore{border-top:1px solid var(--bc);margin-top:20px;padding-top:16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
 .cs-explore-label{font-size:11px;font-weight:600;color:var(--cm);text-transform:uppercase;letter-spacing:1.2px}
 .cs-explore-arrow{font-size:12px;color:var(--c);transition:transform .3s;display:inline-block}
@@ -230,7 +215,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .cs-hl{background:var(--cp);padding:24px;border-left:4px solid var(--c);margin:24px 0;border-radius:0 var(--r) var(--r) 0}
 .cs-hl-title{font-size:15px;font-weight:500;color:var(--t);margin-bottom:12px}
 
-/* SKILLS */
 .skill-wrap{max-width:900px;margin:0 auto}
 .skill-item{border-bottom:1px solid var(--bc);transition:all .3s}
 .skill-item:hover{background:var(--cp)}
@@ -246,7 +230,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .skill-body li:hover{color:var(--t);padding-left:22px}
 .skill-body li::before{content:"•";position:absolute;left:0;color:var(--c)}
 
-/* COMPANIES & EDU */
 .ce-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:48px auto 0}
 .ce-col{background:var(--w);border:1px solid var(--bc);border-radius:var(--r);padding:32px;transition:all .3s}
 .ce-col:hover{border-color:var(--c);box-shadow:0 4px 20px rgba(0,188,212,.1)}
@@ -267,7 +250,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .edu-inst{font-size:13px;color:var(--t2);margin-bottom:4px;font-weight:300}
 .edu-dur{font-size:11px;color:var(--t3);font-weight:300}
 
-/* TESTIMONIALS */
 .testi-outer{background:var(--cl);padding:80px 24px;overflow:visible}
 .testi-outer .sec-head{background:var(--cl)}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1200px;margin:48px auto 0}
@@ -279,7 +261,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 .testi-name{font-size:14px;font-weight:400;color:var(--t);margin-bottom:3px}
 .testi-role{font-size:12px;color:var(--t2);font-weight:300}
 
-/* CONTACT */
 .contact-content{max-width:600px;margin:48px auto 0;text-align:center}
 .contact-btns{display:flex;justify-content:center;gap:20px;margin-top:32px;flex-wrap:wrap}
 .btn{padding:13px 32px;font-size:14px;font-weight:400;text-decoration:none;transition:all .3s;display:inline-block;letter-spacing:.5px;border-radius:var(--r)}
@@ -291,7 +272,6 @@ ul.bul li::before{content:"•";position:absolute;left:0;color:var(--c);font-wei
 footer{background:var(--cl);color:var(--cm);padding:48px 24px;text-align:center;border-top:1px solid var(--bc)}
 footer p{font-size:13px;font-weight:300}
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr}
   .exp-item{grid-template-columns:1fr;gap:20px}
@@ -335,7 +315,7 @@ footer p{font-size:13px;font-weight:300}
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#work" class="nav-dot">Experience</a></li>
+      <li><a href="#work">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -349,11 +329,10 @@ footer p{font-size:13px;font-weight:300}
   <a href="#contact" class="mmlink">Contact</a>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <h1>Hi there, I'm <span class="hl">Sridevi</span>,<br>a Product Manager<br><span style="font-size:clamp(24px,4vw,40px);font-weight:300;opacity:.75">Well, a Human first.</span></h1>
-    <p class="hero-sub">I spend my time with unclear problems, shaping them into products that quietly help, also binge way too much Netflix.</p>
+    <h1>Hi there, I'm <span class="hl">Sridevi</span>,<br>a Product Manager<br><span style="font-size:.6em;font-weight:400;color:rgba(224,247,250,.8)">Well, a Human first.</span></h1>
+    <p class="hero-sub">I spend my time with unclear problems, shaping them into products that quietly help.</p>
     <button class="hero-cta" id="heroEmail">Get in Touch <span class="cta-arrow">↗</span></button>
   </div>
   <div class="ticker-strip">
@@ -364,14 +343,13 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="sec" id="about">
   <div class="sec-head"><h2 class="sec-title">About Me</h2></div>
   <div class="about-grid">
     <div class="about-box">
       <h3>Background</h3>
       <p>I'm a Product Manager with 4+ years of experience launching and scaling web and mobile platforms across B2C and B2B domains. My journey has been defined by taking products from zero to one, growing user bases exponentially, and driving substantial revenue growth.</p>
-      <p>I've led initiatives that grew a user base 180× and scaled revenue from ₹30K to ₹20L per month. I'm skilled in Agile delivery, UX optimization, A/B testing, and cross-functional team leadership.</p>
+      <p>I've led initiatives that grew a user base 180x and delivered significant revenue impact. I'm skilled in Agile delivery, UX optimization, A/B testing, and cross-functional team leadership.</p>
       <p>What drives me is the challenge of converting manual workflows into scalable product systems. I thrive in the intersection of user needs, business goals, and technical feasibility — turning complex problems into elegant solutions that people love to use.</p>
     </div>
     <div>
@@ -381,11 +359,11 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="sec" id="work" style="display:none">
+<section class="sec" id="work">
   <div class="sec-head"><h2 class="sec-title">Experience</h2><p class="sec-sub">Companies I've worked with and the impact I've driven</p></div>
   <div class="exp-timeline">
 
+    <!-- PM -->
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
@@ -396,15 +374,16 @@ footer p{font-size:13px;font-weight:300}
         <h4>Product Manager</h4>
         <p class="exp-desc">Led 0→1 rebuild and relaunched the BHIVE mobile app across 30+ centers, enabling self-serve pass purchase and access for B2C and B2B users. Owned full product lifecycle including release management, sprint execution, stakeholder management, and prioritization frameworks.</p>
         <ul class="bul">
-          <li>Scaled active users from &lt;100 to 18,000+ with 1,300+ monthly sign-ups through product-led growth and UX improvements</li>
-          <li>Increased pass revenue from ₹25–30K/month to ₹15–20L/month (~60× growth) by launching scalable monetization products</li>
-          <li>Reduced manual operations by ~70% via workflow automation, backend integrations, and self-serve product flows</li>
-          <li>Improved checkout success rate by ~30–40% through payment flow optimization and UX enhancements</li>
+          <li>Drove end-to-end product ownership of the 0 to 1 rebuild and relaunch of the BHIVE mobile app across 30 plus centers, scaling active users from under 100 to 18,000 plus, growing pass revenue 40x through self-serve monetization products including Day Pass, Bulk Pass, Hot Desk, All Access, and WFA, reducing manual operations by 80 percent via automation and backend integrations, and improving checkout success by 30 to 40 percent, transforming a sales-driven workflow into a product-led growth engine across B2C and B2B.</li>
+          <li>Scaled pass revenue 60x through structured product launches and data-driven iteration, used CleverTap to track user behaviour, identify funnel drop-offs, and prioritize roadmap decisions that improved conversion, retention, and monetization outcomes.</li>
+          <li>Drove Access Card Lifecycle Management for approximately 23,000 registered BHIVE members by establishing Infinity (Internal management tool) as the single source of truth, defining member onboarding data capture flows, contract-based access validity rules, ZKTeco (vendor) integration requirements, and deactivation workflows in close collaboration with Business, CS, and Security teams.</li>
+          <li>Eliminated manual verification at entry points by driving the eKYC integration with Signzy, defining integration requirements, ensuring compliance with DPDPA data privacy regulations, and establishing a fully digital identity verification flow that improved member onboarding speed and reduced operational dependency on physical checks.</li>
+          <li>Managed end-to-end product operations including triaging customer queries, app store reviews, bug reports, and support escalations, tracked key product metrics, identified underperforming features, and led rapid iteration cycles to pivot away from what was not working and double down on what drove retention and growth.</li>
         </ul>
         <div class="sub-box">
           <h5>Internal Sub-Product Ownership &amp; Performance</h5>
           <span class="sub-label">Day Pass &amp; Bulk Pass</span>
-          <ul class="bul"><li>Owned Day Pass and Bulk Pass products generating ₹15–20L/month; Bulk Pass contributed ~35–40% of total revenue</li><li>Increased booking conversion by ~25% and reduced sales dependency by ~60% through QR-based self-access</li></ul>
+          <ul class="bul">          <li>Owned Day Pass and Bulk Pass products; Bulk Pass contributed approximately 35 to 40 percent of total revenue</li><li>Increased booking conversion by ~25% and reduced sales dependency by ~60% through QR-based self-access</li></ul>
           <span class="sub-label">Hot Desk</span>
           <ul class="bul"><li>Launched Hot Desk as a flexible, deposit-free product; improved seat utilization by ~18–22% and daily seat revenue by ~1.4×</li><li>Achieved ~30% repeat usage within 60 days through pricing and usage optimization</li></ul>
           <span class="sub-label">All Access</span>
@@ -417,6 +396,7 @@ footer p{font-size:13px;font-weight:300}
       </div>
     </div>
 
+    <!-- Sr BA -->
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
@@ -431,6 +411,7 @@ footer p{font-size:13px;font-weight:300}
       </div>
     </div>
 
+    <!-- BA -->
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo bhive">B</div><div class="exp-logo-name">BHIVE</div></div>
@@ -445,6 +426,7 @@ footer p{font-size:13px;font-weight:300}
       </div>
     </div>
 
+    <!-- Amazon -->
     <div class="exp-item">
       <div class="exp-co">
         <div class="exp-logo-row"><div class="exp-logo amazon">a</div><div class="exp-logo-name">Amazon</div></div>
@@ -462,7 +444,6 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </section>
 
-<!-- METRICS -->
 <div class="metrics-outer">
   <div class="metrics-inner">
     <div class="sec-head"><h2 class="sec-title">Impact at a Glance</h2><p class="sec-sub">Key metrics from my product journey</p></div>
@@ -470,12 +451,14 @@ footer p{font-size:13px;font-weight:300}
       <div class="metrics-arrow" id="marrow">→</div>
       <div class="metrics-scroll" id="mscroll">
         <div class="metrics-row">
+          <div class="m-card"><div class="m-val">23K+</div><div class="m-lbl">BHIVE Members<br>Lifecycle Managed</div></div>
+          <div class="m-card"><div class="m-val">100%</div><div class="m-lbl">Digital Entry<br>eKYC via Signzy</div></div>
+          <div class="m-card"><div class="m-val">DPDPA</div><div class="m-lbl">Compliant<br>Privacy-first Delivery</div></div>
           <div class="m-card"><div class="m-val">180×</div><div class="m-lbl">User Growth<br>From &lt;100 to 18,000+</div></div>
           <div class="m-card"><div class="m-val">60×</div><div class="m-lbl">Revenue Growth<br>₹30K → ₹20L/month</div></div>
           <div class="m-card"><div class="m-val">70%</div><div class="m-lbl">Operations Reduced<br>Through automation</div></div>
           <div class="m-card"><div class="m-val">1,300+</div><div class="m-lbl">Monthly Sign-ups<br>Consistent growth</div></div>
-          <div class="m-card"><div class="m-val">₹15–20L</div><div class="m-lbl">Day Pass Revenue<br>Monthly generation</div></div>
-          <div class="m-card"><div class="m-val">30–40%</div><div class="m-lbl">Checkout Success<br>Conversion boost</div></div>
+          <div class="m-card"><div class="m-val">40×</div><div class="m-lbl">Pass Revenue Growth<br>Month on month</div><div class="m-lbl">Checkout Success<br>Conversion boost</div></div>
           <div class="m-card"><div class="m-val">18–22%</div><div class="m-lbl">Seat Utilization<br>Hot Desk impact</div></div>
           <div class="m-card"><div class="m-val">3×</div><div class="m-lbl">Cross-Location Usage<br>All Access feature</div></div>
           <div class="m-card"><div class="m-val">20–25%</div><div class="m-lbl">Retention Increase<br>User stickiness</div></div>
@@ -486,13 +469,11 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </div>
 
-<!-- PROJECTS -->
-<div class="proj-outer">
+<div class="proj-outer" id="projects">
   <div style="max-width:1200px;margin:0 auto">
     <div class="sec-head"><h2 class="sec-title">My Product Work</h2><p class="sec-sub">Deep dives into products I've built from scratch</p></div>
   </div>
   <div class="proj-inner">
-
     <div class="jcard">
       <div class="jcard-preview" id="prev0">
         <div class="mob">
@@ -551,7 +532,7 @@ footer p{font-size:13px;font-weight:300}
           <button class="jcard-more" data-card="1">Know More</button>
         </div>
         <div class="mob mob-r">
-          <div class="mob-screen">
+          <div class="mob-screen mob-screen-r">
             <div class="mob-scroll">
               <div class="mob-item"><div class="mob-title">⚠️ The Problem</div><div class="mob-text">Uneven utilization &amp; deposit friction blocking short-term users</div><div class="mob-metric"><div><div class="mob-mv">Idle</div><div class="mob-ml">Off-peak Seats</div></div><div><div class="mob-mv">High</div><div class="mob-ml">Drop-off Rate</div></div></div></div>
               <div class="mob-item"><div class="mob-title">🪑 Hot Desk Launch</div><div class="mob-text">Deposit-free, instant app activation, QR access — zero friction entry</div><div class="mob-metric"><div><div class="mob-mv">18–22%</div><div class="mob-ml">Utilization ↑</div></div><div><div class="mob-mv">1.4×</div><div class="mob-ml">Revenue/Seat</div></div></div></div>
@@ -586,12 +567,10 @@ footer p{font-size:13px;font-weight:300}
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- CASE STUDY -->
-<div class="cs-outer">
+<div class="cs-outer" id="case-study">
   <div style="max-width:1200px;margin:0 auto">
     <div class="sec-head"><h2 class="sec-title">Case Study</h2><p class="sec-sub">In-depth look at civic product design</p></div>
   </div>
@@ -600,7 +579,7 @@ footer p{font-size:13px;font-weight:300}
       <div>
         <h3 class="cs-title">CivicTrust: Digital Civic Infrastructure</h3>
         <p class="cs-subtitle">Building the UPI layer for philanthropy and volunteering in India</p>
-        <button onclick="document.getElementById('protoOverlay').style.display='flex'" class="cs-proto-btn" style="cursor:pointer;background:none;border:none;padding:0">View Prototype <span class="cs-proto-arrow">↗</span></button>
+        <a href="https://claude.ai/artifacts/f4e89610-360f-42c2-a296-d28bb156c7e7" target="_blank" class="cs-proto-btn">View Prototype <span class="cs-proto-arrow">↗</span></a>
         <div class="cs-tags-wrap"><span class="tag">GovTech</span><span class="tag">CivicTech</span><span class="tag">FinTech Infrastructure</span><span class="tag">Three-Sided Platform</span></div>
         <div class="cs-explore" id="cs-explore">
           <span class="cs-explore-label">Explore Sections</span>
@@ -631,8 +610,7 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </div>
 
-<!-- SKILLS & CE -->
-<section class="sec">
+<section class="sec" id="skills">
   <div class="sec-head" style="margin-top:0"><h2 class="sec-title">Skills &amp; Expertise</h2><p class="sec-sub">Core competencies I bring to product development</p></div>
   <div class="skill-wrap">
     <div class="skill-item"><div class="skill-head"><span class="skill-name">Product &amp; Strategy</span><span class="skill-icon">▼</span></div><div class="skill-body"><ul><li>Roadmaps &amp; PRDs</li><li>User Stories</li><li>Prioritization Frameworks</li><li>OKRs &amp; Metrics</li><li>Monetization</li></ul></div></div>
@@ -656,8 +634,7 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<div class="testi-outer">
+<div class="testi-outer" id="testimonials">
   <div style="max-width:1200px;margin:0 auto">
     <div class="sec-head"><h2 class="sec-title">Testimonials</h2><p class="sec-sub">What colleagues and leaders say about working with me</p></div>
   </div>
@@ -668,7 +645,6 @@ footer p{font-size:13px;font-weight:300}
   </div>
 </div>
 
-<!-- CONTACT -->
 <section class="sec" id="contact">
   <div class="sec-head"><h2 class="sec-title">Let's Connect</h2><p class="sec-sub">I'm always open to discussing product management opportunities, collaborations, or just chatting about building great products</p></div>
   <div class="contact-content">
@@ -681,45 +657,14 @@ footer p{font-size:13px;font-weight:300}
 
 <footer><p>&copy; 2026 Sridevi. Designed &amp; Built with ❤️</p></footer>
 
-<!-- PROTOTYPE OVERLAY -->
-<div id="protoOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)">
-  <div style="background:#fff;border-radius:16px;overflow:hidden;width:100%;max-width:420px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.4)">
-    <!-- Modal Header -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #E2E8F0;background:#fafafa;flex-shrink:0">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:32px;height:32px;background:linear-gradient(135deg,#00BCD4,#006064);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🛡️</div>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#333">CivicTrust</div>
-          <div style="font-size:11px;color:#999">Interactive Prototype</div>
-        </div>
-      </div>
-      <button onclick="document.getElementById('protoOverlay').style.display='none'" style="width:32px;height:32px;border-radius:50%;border:1px solid #E2E8F0;background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:#666;transition:all .2s" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'">×</button>
-    </div>
-    <!-- App Content -->
-    <div style="flex:1;overflow-y:auto;background:#f3f4f6" id="protoApp"></div>
-  </div>
-</div>
-
 <script>
 (function(){
   var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){
-    nav.classList.toggle('scrolled',window.scrollY>50);
-    var sections=['home','about','work','contact'];
-    var active='home';
-    sections.forEach(function(id){
-      var el=document.getElementById(id);
-      if(el&&el.style.display!=='none'&&window.scrollY>=el.offsetTop-120)active=id;
-    });
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      var href=a.getAttribute('href').replace('#','');
-      a.classList.toggle('nav-active',href===active);
-    });
-  },{passive:true});
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
 
   var ham=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
   ham.addEventListener('click',function(){ham.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});
-  document.querySelectorAll('.mmlink').forEach(function(a){a.addEventListener('click',function(){setActiveNav(this.getAttribute('href'));ham.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
+  document.querySelectorAll('.mmlink').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});
 
   var ms=document.getElementById('mscroll'),ma=document.getElementById('marrow');
   if(ms&&ma){ma.addEventListener('click',function(){ms.scrollBy({left:220,behavior:'smooth'});});ms.addEventListener('scroll',function(){ma.classList.toggle('hide',ms.scrollLeft>=ms.scrollWidth-ms.clientWidth-10);},{passive:true});}
@@ -731,14 +676,7 @@ footer p{font-size:13px;font-weight:300}
 
   document.querySelectorAll('.skill-head').forEach(function(h){h.addEventListener('click',function(){var body=this.parentElement.querySelector('.skill-body'),icon=this.parentElement.querySelector('.skill-icon');body.classList.toggle('open');icon.classList.toggle('open');});});
 
-  function activateStep(card,step){
-    document.querySelectorAll('.step[data-card="'+card+'"]').forEach(function(s){s.classList.remove('active');});
-    document.querySelectorAll('.panel[data-card="'+card+'"]').forEach(function(p){p.classList.remove('active');});
-    var as=document.querySelector('.step[data-card="'+card+'"][data-step="'+step+'"]');
-    var ap=document.querySelector('.panel[data-card="'+card+'"][data-panel="'+step+'"]');
-    if(as)as.classList.add('active');
-    if(ap)ap.classList.add('active');
-  }
+  function activateStep(card,step){document.querySelectorAll('.step[data-card="'+card+'"]').forEach(function(s){s.classList.remove('active');});document.querySelectorAll('.panel[data-card="'+card+'"]').forEach(function(p){p.classList.remove('active');});var as=document.querySelector('.step[data-card="'+card+'"][data-step="'+step+'"]'),ap=document.querySelector('.panel[data-card="'+card+'"][data-panel="'+step+'"]');if(as)as.classList.add('active');if(ap)ap.classList.add('active');}
   document.getElementById('cb0').addEventListener('click',function(){document.getElementById('body0').classList.remove('open');});
   document.getElementById('cb1').addEventListener('click',function(){document.getElementById('body1').classList.remove('open');});
   document.querySelectorAll('.jcard-more').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();document.querySelectorAll('.jcard-body').forEach(function(b){b.classList.remove('open');});var idx=this.getAttribute('data-card'),body=document.getElementById('body'+idx);if(body){body.classList.add('open');activateStep(idx,0);}});});
@@ -751,210 +689,7 @@ footer p{font-size:13px;font-weight:300}
   if(hBtn)hBtn.addEventListener('click',handleEmail);
   if(eBtn)eBtn.addEventListener('click',handleEmail);
 
-  // Close overlay on backdrop click
-  document.getElementById('protoOverlay').addEventListener('click',function(e){if(e.target===this)this.style.display='none';});
-
-  // CivicTrust Prototype
-  (function(){
-    var campaigns=[
-      {id:1,title:"Emergency Heart Surgery for 8-year-old Priya",cat:"medical",loc:"Mumbai, MH",raised:1850000,goal:2000000,donors:342,urgency:"critical",trans:95,days:3,img:"🏥",ben:"Priya Sharma",hosp:"Lilavati Hospital",desc:"Priya needs immediate heart surgery. Her family has exhausted all savings and requires urgent financial support.",docs:["Medical reports","Hospital estimate","ID proof","Income certificate"]},
-      {id:2,title:"Rebuild Homes After Cyclone",cat:"disaster",loc:"Nagapattinam, TN",raised:3200000,goal:5000000,donors:876,urgency:"high",trans:92,days:12,img:"🏠",ben:"45 Families",org:"Relief India Foundation",desc:"45 families lost their homes in recent cyclone. Funds for reconstruction and immediate relief materials.",docs:["Damage assessment","Beneficiary list","NGO registration","District approval"]},
-      {id:3,title:"Education for Tribal Children",cat:"education",loc:"Ranchi, JH",raised:890000,goal:1000000,donors:234,urgency:"medium",trans:98,days:18,img:"📚",ben:"120 Students",org:"Eklavya Education Trust",desc:"Providing books, uniforms, and school supplies for 120 tribal children to continue their education.",docs:["Student list","Trust registration","School letter","Budget breakdown"]},
-      {id:4,title:"Cancer Treatment for Single Mother",cat:"medical",loc:"Bangalore, KA",raised:780000,goal:1500000,donors:189,urgency:"critical",trans:94,days:5,img:"💊",ben:"Lakshmi Reddy",hosp:"Kidwai Memorial Institute",desc:"Lakshmi is undergoing cancer treatment and needs support for chemotherapy and medication costs.",docs:["Medical records","Treatment plan","Hospital invoice","Income proof"]}
-    ];
-    var state={tab:'home',filter:'all',search:'',modal:null,selId:null,donAmt:''};
-    var urgColor={critical:'#EF4444',high:'#F97316',medium:'#3B82F6'};
-    function pct(r,g){return Math.min((r/g)*100,100).toFixed(0);}
-    function lakh(n){return (n/100000).toFixed(1)+'L';}
-    function render(){
-      var app=document.getElementById('protoApp');
-      if(!app)return;
-      var filtered=campaigns.filter(function(c){
-        var ms=c.title.toLowerCase().includes(state.search.toLowerCase())||c.loc.toLowerCase().includes(state.search.toLowerCase());
-        if(state.filter==='all')return ms;
-        if(state.filter==='critical')return ms&&c.urgency==='critical';
-        if(state.filter==='near-goal')return ms&&parseFloat(pct(c.raised,c.goal))>=85;
-        return ms&&c.cat===state.filter;
-      });
-      var html='<div style="display:flex;flex-direction:column;height:100%;min-height:500px">';
-      // Top Bar
-      html+='<div style="background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">';
-      html+='<div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px">🛡️</div><span style="font-weight:700;color:#111;font-size:15px">CivicTrust</span></div>';
-      html+='<div style="display:flex;gap:6px"><button onclick="proto_notify()" style="position:relative;background:none;border:none;padding:6px;cursor:pointer;font-size:18px">🔔<span style="position:absolute;top:2px;right:2px;width:8px;height:8px;background:#EF4444;border-radius:50%;display:block"></span></button></div>';
-      html+='</div>';
-      // Tab Content
-      if(state.tab==='home'){
-        html+='<div style="flex:1;overflow-y:auto;padding-bottom:60px">';
-        // Hero
-        html+='<div style="margin:12px;background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:16px;padding:20px;color:#fff">';
-        html+='<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12px;font-weight:500">🛡️ Government Verified</div>';
-        html+='<div style="font-size:20px;font-weight:800;margin-bottom:4px">Trust-First Giving</div>';
-        html+='<div style="font-size:12px;opacity:.8;margin-bottom:12px">Every campaign verified. Every rupee tracked.</div>';
-        html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
-        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">₹248Cr</div><div style="font-size:10px;opacity:.8">Raised</div></div>';
-        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">1.2M+</div><div style="font-size:10px;opacity:.8">Donors</div></div>';
-        html+='<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800">100%</div><div style="font-size:10px;opacity:.8">Verified</div></div>';
-        html+='</div></div>';
-        // Search
-        html+='<div style="padding:0 12px;margin-bottom:10px"><input oninput="proto_search(this.value)" value="'+state.search+'" placeholder="Search campaigns..." style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:12px;font-size:13px;box-sizing:border-box;outline:none" /></div>';
-        // Filters
-        var filters=[['all','All'],['critical','🚨 Critical'],['near-goal','📈 Near Goal'],['medical','Medical'],['education','Education'],['disaster','Disaster']];
-        html+='<div style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 10px;scrollbar-width:none">';
-        filters.forEach(function(f){
-          var active=state.filter===f[0];
-          html+='<button onclick="proto_filter(\''+f[0]+'\')" style="flex-shrink:0;padding:7px 14px;border-radius:20px;border:none;font-size:12px;font-weight:600;cursor:pointer;background:'+(active?'#2563EB':'#f3f4f6')+';color:'+(active?'#fff':'#374151')+'">'+ f[1]+'</button>';
-        });
-        html+='</div>';
-        // Campaign Cards
-        filtered.forEach(function(c){
-          var p=pct(c.raised,c.goal);
-          html+='<div style="margin:0 12px 12px;background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">';
-          html+='<div style="height:3px;background:'+urgColor[c.urgency]+'"></div>';
-          html+='<div style="padding:14px">';
-          html+='<div style="display:flex;gap:10px;margin-bottom:10px"><div style="font-size:28px">'+c.img+'</div><div style="flex:1"><div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:2px">✅ VERIFIED</div><div style="font-size:13px;font-weight:700;color:#111;line-height:1.4;margin-bottom:4px">'+c.title+'</div><div style="font-size:11px;color:#6b7280">📍 '+c.loc+' • ⏱ '+c.days+'d left</div></div></div>';
-          html+='<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:15px;font-weight:800;color:#111">₹'+lakh(c.raised)+'</span><span style="font-size:11px;color:#6b7280">of ₹'+lakh(c.goal)+'</span></div>';
-          html+='<div style="background:#e5e7eb;border-radius:4px;height:6px;overflow:hidden"><div style="height:6px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+p+'%"></div></div>';
-          html+='<div style="display:flex;justify-content:space-between;margin-top:6px"><span style="font-size:11px;color:#6b7280">👥 '+c.donors+' donors</span><span style="font-size:11px;font-weight:700;color:#16A34A">'+p+'%</span></div></div>';
-          html+='<div style="background:#EFF6FF;border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:11px;color:#374151;font-weight:500">Transparency</span><div style="display:flex;align-items:center;gap:6px"><div style="width:60px;background:#e5e7eb;border-radius:4px;height:5px"><div style="height:5px;background:#2563EB;border-radius:4px;width:'+c.trans+'%"></div></div><span style="font-size:11px;font-weight:700;color:#2563EB">'+c.trans+'%</span></div></div>';
-          html+='<div style="display:flex;gap:8px">';
-          html+='<button onclick="proto_donate('+c.id+')" style="flex:1;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:10px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer">Donate Now</button>';
-          html+='<button onclick="proto_details('+c.id+')" style="padding:10px 14px;border:2px solid #e5e7eb;border-radius:10px;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#374151">Details</button>';
-          html+='</div></div></div>';
-        });
-        if(filtered.length===0)html+='<div style="text-align:center;padding:40px;color:#9ca3af;font-size:14px">No campaigns found</div>';
-        html+='</div>'; // end scroll
-      } else if(state.tab==='explore'){
-        html+='<div style="flex:1;overflow-y:auto;padding:16px;padding-bottom:60px">';
-        html+='<div style="font-size:18px;font-weight:800;color:#111;margin-bottom:16px">Explore</div>';
-        var cats=[['🚨','Critical','#EF4444','2 urgent cases'],['❤️','Medical','#3B82F6','2 campaigns'],['📚','Education','#8B5CF6','1 campaign'],['🏠','Disaster','#F97316','1 campaign']];
-        html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
-        cats.forEach(function(c){html+='<div style="background:'+c[2]+';border-radius:16px;padding:20px;color:#fff"><div style="font-size:28px;margin-bottom:8px">'+c[0]+'</div><div style="font-size:15px;font-weight:700;margin-bottom:4px">'+c[1]+'</div><div style="font-size:11px;opacity:.8">'+c[3]+'</div></div>';});
-        html+='</div>';
-        html+='<div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:16px">';
-        html+='<div style="font-size:15px;font-weight:700;color:#111;margin-bottom:14px">How It Works</div>';
-        var steps=[['#DBEAFE','#2563EB','Submit Campaign','Upload documents and details'],['#DCFCE7','#16A34A','Verification','Government-backed process'],['#EDE9FE','#8B5CF6','Go Live','Campaign appears on platform'],['#FEF3C7','#D97706','Funds Transfer','Direct to beneficiaries']];
-        steps.forEach(function(s,i){html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div style="width:32px;height:32px;background:'+s[0]+';border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:'+s[1]+';flex-shrink:0">'+(i+1)+'</div><div><div style="font-size:13px;font-weight:600;color:#111">'+s[2]+'</div><div style="font-size:11px;color:#6b7280">'+s[3]+'</div></div></div>';});
-        html+='</div>';
-        html+='<div style="background:linear-gradient(135deg,#16A34A,#15803D);border-radius:16px;padding:24px;color:#fff"><div style="font-size:28px;margin-bottom:8px">👥</div><div style="font-size:18px;font-weight:800;margin-bottom:8px">Become a Volunteer</div><div style="font-size:12px;opacity:.8;margin-bottom:14px">Use your skills to make a real difference across India.</div><button style="background:#fff;color:#16A34A;border:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer">Join Now</button></div>';
-        html+='</div>';
-      } else if(state.tab==='profile'){
-        html+='<div style="flex:1;overflow-y:auto;padding:16px;padding-bottom:60px">';
-        html+='<div style="background:linear-gradient(135deg,#2563EB,#16A34A);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px">';
-        html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="width:52px;height:52px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">👤</div><div><div style="font-size:17px;font-weight:700">Guest User</div><div style="font-size:12px;opacity:.8">Sign in to save preferences</div></div></div>';
-        html+='<button onclick="proto_modal(\'signin\')" style="width:100%;background:#fff;color:#2563EB;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">Sign In / Sign Up</button></div>';
-        var items=[['❤️','My Donations'],['🏆','My Impact'],['👥','Volunteer History'],['📝','Start Campaign']];
-        html+='<div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;margin-bottom:16px">';
-        items.forEach(function(item,i){html+='<button onclick="'+(item[1]==='Start Campaign'?'proto_modal(\'campaign\')':'')+('"')+' style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:none;background:#fff;border-bottom:'+(i<items.length-1?'1px solid #f3f4f6':'none')+';cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><span>'+item[0]+'</span><span style="font-size:14px;font-weight:500;color:#111">'+item[1]+'</span></div><span style="color:#9ca3af">›</span></button>';});
-        html+='</div>';
-        html+='</div>';
-      }
-      // Bottom Nav
-      html+='<div style="position:sticky;bottom:0;background:#fff;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:8px 0;flex-shrink:0">';
-      var tabs=[['home','🏠','Home'],['explore','🧭','Explore'],['profile','👤','Profile']];
-      tabs.forEach(function(t){
-        var a=state.tab===t[0];
-        html+='<button onclick="proto_tab(\''+t[0]+'\')" style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 20px;border:none;background:'+(a?'#EFF6FF':'#fff')+';border-radius:10px;cursor:pointer"><span style="font-size:20px">'+t[1]+'</span><span style="font-size:10px;font-weight:600;color:'+(a?'#2563EB':'#6b7280')+'">'+t[2]+'</span></button>';
-      });
-      html+='</div>';
-      // Modals
-      if(state.modal==='donate'&&state.selId){
-        var c=campaigns.find(function(x){return x.id===state.selId;});
-        html+='<div style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;display:flex;flex-direction:column;justify-content:flex-end">';
-        html+='<div style="background:#fff;border-radius:20px 20px 0 0;padding:20px;max-height:90%;overflow-y:auto">';
-        html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:16px;font-weight:800">Donate</span><button onclick="proto_closemodal()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">×</button></div>';
-        html+='<div style="background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#111;margin-bottom:4px">'+c.ben+'</div><div style="font-size:12px;color:#6b7280">'+c.loc+' • '+lakh(c.raised)+' raised</div></div>';
-        html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">';
-        ['500','1000','2500'].forEach(function(a){html+='<button onclick="proto_setamt(\''+a+'\')" style="padding:14px;border-radius:10px;border:2px solid '+(state.donAmt===a?'#2563EB':'#e5e7eb')+';background:'+(state.donAmt===a?'#EFF6FF':'#fff')+';font-weight:700;font-size:14px;cursor:pointer;color:'+(state.donAmt===a?'#2563EB':'#374151')+'">₹'+a+'</button>';});
-        html+='</div>';
-        html+='<input oninput="proto_setamt(this.value)" value="'+state.donAmt+'" placeholder="Custom amount" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:10px;box-sizing:border-box;outline:none" />';
-        html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px;margin-bottom:14px;font-size:12px;color:#15803D">✅ 100% Verified & Secure — Funds go directly to verified beneficiaries</div>';
-        html+='<button onclick="proto_process()" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">Donate ₹'+(state.donAmt||'0')+'</button>';
-        html+='</div></div>';
-      }
-      if(state.modal==='details'&&state.selId){
-        var c=campaigns.find(function(x){return x.id===state.selId;});
-        var p=pct(c.raised,c.goal);
-        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100;overflow-y:auto">';
-        html+='<div style="background:linear-gradient(135deg,#2563EB,#16A34A);padding:40px 16px 20px;position:relative">';
-        html+='<button onclick="proto_closemodal()" style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer;color:#fff">×</button>';
-        html+='<div style="text-align:center;font-size:60px;margin-bottom:10px">'+c.img+'</div></div>';
-        html+='<div style="padding:16px">';
-        html+='<div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:6px">✅ GOVERNMENT VERIFIED</div>';
-        html+='<div style="font-size:18px;font-weight:800;color:#111;margin-bottom:6px">'+c.title+'</div>';
-        html+='<div style="font-size:12px;color:#6b7280;margin-bottom:16px">📍 '+c.loc+' • ⏱ '+c.days+' days left</div>';
-        html+='<div style="background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:22px;font-weight:800">₹'+lakh(c.raised)+'</span><span style="font-size:12px;color:#6b7280;align-self:flex-end">of ₹'+lakh(c.goal)+'</span></div><div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;margin-bottom:8px"><div style="height:8px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+p+'%"></div></div><div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#6b7280">👥 '+c.donors+' donors</span><span style="font-size:12px;font-weight:700;color:#16A34A">'+p+'% funded</span></div></div>';
-        html+='<div style="font-size:14px;font-weight:700;color:#111;margin-bottom:8px">About this Campaign</div>';
-        html+='<div style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:14px">'+c.desc+'</div>';
-        html+='<div style="background:#EFF6FF;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#111;margin-bottom:10px">Beneficiary Details</div><div style="font-size:12px;display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:#6b7280">Name:</span><span style="font-weight:600">'+c.ben+'</span></div>'+(c.hosp?'<div style="font-size:12px;display:flex;justify-content:space-between"><span style="color:#6b7280">Hospital:</span><span style="font-weight:600">'+c.hosp+'</span></div>':'')+(c.org?'<div style="font-size:12px;display:flex;justify-content:space-between"><span style="color:#6b7280">Organization:</span><span style="font-weight:600">'+c.org+'</span></div>':'')+'</div>';
-        html+='<div style="font-size:13px;font-weight:700;color:#111;margin-bottom:10px">Verified Documents</div>';
-        html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">';
-        c.docs.forEach(function(d){html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 10px;font-size:11px;color:#15803D;font-weight:500">✅ '+d+'</div>';});
-        html+='</div>';
-        html+='<div style="background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #93C5FD;border-radius:12px;padding:14px;margin-bottom:16px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:13px;font-weight:700;color:#111">Transparency Score</span><span style="font-size:24px;font-weight:800;color:#2563EB">'+c.trans+'%</span></div><div style="background:#e5e7eb;border-radius:4px;height:6px;overflow:hidden"><div style="height:6px;background:linear-gradient(to right,#2563EB,#16A34A);width:'+c.trans+'%"></div></div></div>';
-        html+='<button onclick="proto_closemodal();proto_donate('+c.id+')" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">❤️ Donate Now</button>';
-        html+='</div></div>';
-      }
-      if(state.modal==='notify'){
-        var notifs=[{t:'New campaign: Emergency surgery needed',time:'5m ago',u:true},{t:'Your donation helped save a life!',time:'2h ago',u:true},{t:'Campaign you donated to reached goal',time:'1d ago',u:false}];
-        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100">';
-        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Notifications</span><div style="width:32px"></div></div>';
-        html+='<div style="padding:16px;space-y:8px">';
-        notifs.forEach(function(n){html+='<div style="background:'+(n.u?'#EFF6FF':'#fff')+';border:1px solid '+(n.u?'#BFDBFE':'#e5e7eb')+';border-radius:12px;padding:14px;margin-bottom:10px;display:flex;gap:10px"><div style="width:8px;height:8px;background:'+(n.u?'#2563EB':'#d1d5db')+';border-radius:50%;margin-top:5px;flex-shrink:0"></div><div><div style="font-size:13px;font-weight:500;color:#111">'+n.t+'</div><div style="font-size:11px;color:#9ca3af;margin-top:3px">'+n.time+'</div></div></div>';});
-        html+='</div></div>';
-      }
-      if(state.modal==='signin'){
-        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100">';
-        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Sign In</span><div style="width:32px"></div></div>';
-        html+='<div style="padding:20px">';
-        html+='<div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:14px;margin-bottom:16px;font-size:13px;color:#1e40af">Sign in to track donations, save campaigns, and get personalized recommendations.</div>';
-        html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Email or Phone</label><input placeholder="Enter email or phone" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" /></div>';
-        html+='<div style="margin-bottom:16px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Password</label><input type="password" placeholder="Enter password" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" /></div>';
-        html+='<button style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:12px">Sign In</button>';
-        html+='<button style="width:100%;background:none;border:none;font-size:14px;color:#2563EB;font-weight:600;cursor:pointer">Create New Account</button>';
-        html+='</div></div>';
-      }
-      if(state.modal==='campaign'){
-        html+='<div style="position:fixed;inset:0;background:#fff;z-index:100;overflow-y:auto">';
-        html+='<div style="background:linear-gradient(to right,#2563EB,#16A34A);padding:16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0"><button onclick="proto_closemodal()" style="background:rgba(255,255,255,.2);border:none;border-radius:8px;padding:6px;cursor:pointer;color:#fff;font-size:18px">×</button><span style="font-size:16px;font-weight:700;color:#fff">Start Campaign</span><div style="width:32px"></div></div>';
-        html+='<div style="padding:20px">';
-        html+='<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:12px;padding:14px;margin-bottom:16px;font-size:13px;color:#15803D">✅ All campaigns undergo government verification before going live.</div>';
-        ['Full Name','Phone Number','Description'].forEach(function(label){html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">'+label+' *</label>'+(label==='Description'?'<textarea placeholder="Describe your situation" rows="4" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none;resize:none"></textarea>':'<input placeholder="Enter '+label.toLowerCase()+'" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none" />')+'</div>';});
-        html+='<div style="margin-bottom:12px"><label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Category *</label><select style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;box-sizing:border-box;outline:none"><option>Select category</option><option>Medical Emergency</option><option>Education</option><option>Disaster Relief</option><option>Other</option></select></div>';
-        html+='<div style="border:2px dashed #d1d5db;border-radius:12px;padding:24px;text-align:center;margin-bottom:16px"><div style="font-size:28px;margin-bottom:6px">📎</div><div style="font-size:13px;color:#6b7280">Tap to upload documents</div><div style="font-size:11px;color:#9ca3af;margin-top:4px">ID, medical reports, certificates</div></div>';
-        html+='<button onclick="proto_submitcampaign()" style="width:100%;background:linear-gradient(to right,#2563EB,#16A34A);color:#fff;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer">Submit for Verification</button>';
-        html+='</div></div>';
-      }
-      html+='</div>'; // end outer
-      app.innerHTML=html;
-    }
-    window.proto_tab=function(t){state.tab=t;render();};
-    window.proto_filter=function(f){state.filter=f;render();};
-    window.proto_search=function(v){state.search=v;render();};
-    window.proto_donate=function(id){state.modal='donate';state.selId=id;state.donAmt='';render();};
-    window.proto_details=function(id){state.modal='details';state.selId=id;render();};
-    window.proto_notify=function(){state.modal='notify';render();};
-    window.proto_modal=function(m){state.modal=m;render();};
-    window.proto_closemodal=function(){state.modal=null;render();};
-    window.proto_setamt=function(a){state.donAmt=a;render();};
-    window.proto_process=function(){
-      if(!state.donAmt||parseInt(state.donAmt)<=0){alert('Please enter a valid amount');return;}
-      var c=campaigns.find(function(x){return x.id===state.selId;});
-      alert('Thank you! Donation of ₹'+state.donAmt+' to "'+c.title+'" is being processed.');
-      state.modal=null;state.donAmt='';render();
-    };
-    window.proto_submitcampaign=function(){
-      alert('Campaign submitted for verification! You will receive updates within 24–48 hours.');
-      state.modal=null;render();
-    };
-    render();
-  })();
-
-  function setActiveNav(href){
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      a.classList.toggle('nav-active',a.getAttribute('href')===href);
-    });
-  }
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(!h||h==='#'||h.length<=1)return;e.preventDefault();setActiveNav(h);if(h==='#work'){var w=document.getElementById('work');if(w){w.style.display='block';setTimeout(function(){w.scrollIntoView({behavior:'smooth',block:'start'});},50);}}else{var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(!h||h==='#'||h.length<=1)return;e.preventDefault();var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
 })();
 </script>
 </body>
